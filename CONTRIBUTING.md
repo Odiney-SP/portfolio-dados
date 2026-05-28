@@ -1,70 +1,40 @@
-# Guia de Organização do Portfólio
-
-Este documento define os padrões de organização e contribuição deste repositório pessoal.
+# Como organizo este repositório
 
 ---
 
-## Filosofia
-
-- **Registrar o processo, não só o resultado.** Estudos iniciais, erros, iterações e aprendizados têm valor.
-- **Consistência acima de perfeição.** Um commit pequeno por dia vale mais que um grande por mês.
-- **Documentar enquanto aprende.** Não esperar o projeto "ficar pronto" para documentar.
+Algumas convenções que sigo para manter o repositório navegável e consistente.
 
 ---
 
-## Estrutura de Commits
+## Commits
 
-Usar o padrão Conventional Commits:
+Uso o padrão Conventional Commits em português:
 
 ```
-tipo: descrição curta em português
-
-Tipos:
-  study:    estudo ou exercício adicionado
-  feat:     novo projeto ou funcionalidade
-  docs:     documentação criada ou atualizada
-  fix:      correção de erro ou imprecisão
-  refactor: reorganização de conteúdo
-  chore:    manutenção geral do repositório
+study:    estudo ou exercício adicionado
+feat:     novo projeto ou funcionalidade
+docs:     documentação criada ou atualizada
+fix:      correção de erro ou imprecisão
+refactor: reorganização de conteúdo
+chore:    manutenção geral
 ```
 
-Exemplos:
-```
-study: adiciona queries de window functions em SQL
-feat: inicia projeto dashboard-operacional
-docs: atualiza roadmap com novos marcos técnicos
-fix: corrige fórmula DAX em estudos-iniciais
-```
+Exemplos: `study: adiciona queries de window functions em SQL` · `feat: inicia projeto dashboard-operacional`
 
 ---
 
-## Organização de Estudos
+## Estudos
 
-Ao adicionar um novo estudo:
-
-1. Colocar na pasta da stack correspondente (`STACKS/sql/`, `STACKS/python/`, etc.)
-2. Nomear o arquivo com número sequencial: `01-tema.sql`, `02-tema.py`
-3. Incluir comentários explicativos no código
-4. Exercícios propostos ao final, quando aplicável
+Cada arquivo de estudo vai na pasta da stack correspondente, nomeado com número sequencial (`01-tema.sql`, `02-tema.py`). O código tem comentários explicativos — escrevo como se fosse explicar para outra pessoa o que aquela linha está fazendo. Exercícios propostos ficam no final quando faz sentido.
 
 ---
 
-## Organização de Projetos
+## Projetos
 
-Cada projeto em `PROJETOS/` deve ter:
-
-- `README.md` com objetivo, stack, status e cronograma
-- Pasta `dados/` para datasets utilizados
-- Documentação das decisões tomadas
+Cada projeto tem um `README.md` com o contexto de onde surgiu, o que vai ser construído e o estado atual. Prefiro documentar antes de estar pronto — o processo importa tanto quanto o resultado.
 
 ---
 
-## Atualização do CHANGELOG
+## Manutenção
 
-Ao fazer contribuições relevantes, atualizar `CHANGELOG.md` com o que foi adicionado.
-
----
-
-## Atualização do ROADMAP
-
-Ao completar marcos técnicos, marcar como concluído em `ROADMAP.md`.
+Atualizo `CHANGELOG.md` quando adiciono algo relevante e `ROADMAP.md` quando concluo um marco técnico. `PROJECT_BOARD.md` fica como visão rápida do que está em andamento.

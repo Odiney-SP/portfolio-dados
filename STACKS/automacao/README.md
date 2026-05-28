@@ -1,92 +1,37 @@
 ﻿# Automação
 
-> Em construção contínua — cada processo automatizado libera tempo para análise.
+Automação entrou no meu radar de forma bem concreta: toda semana eu passava horas consolidando planilhas, calculando métricas e formatando relatórios para a gestão. Era trabalho repetitivo, sujeito a erro e que consumia tempo que poderia ser usado analisando os dados de verdade.
 
-Automação é a capacidade de fazer máquinas executarem tarefas repetitivas no lugar de pessoas. Para analistas de dados, automação significa menos tempo em processos manuais e mais foco em interpretação e decisão.
-
----
-
-## Por que Automação importa para dados
-
-- Relatórios que levam horas podem rodar em minutos de forma automática
-- Pipelines de dados garantem consistência e rastreabilidade
-- Automação de ETL reduz erros humanos em processos críticos
-- Integração entre sistemas viabiliza dados em tempo real
+Scripts Python simples já resolvem boa parte disso. Power Automate funciona bem para fluxos dentro do Microsoft 365. n8n estou explorando para integrações mais complexas entre sistemas.
 
 ---
 
-## Roadmap de Aprendizado
+## O que já estou usando
 
-```
-Nível 1 — Fundamentos
-└── Conceitos de automação de processos
-└── Identificação de tarefas automatizáveis
-└── Scripts Python para automação básica
+Python para manipulação de arquivos — ler planilhas, consolidar bases, calcular indicadores e gerar o relatório de saída já formatado. `requests` para consumir APIs. `smtplib` e `schedule` para automação com envio por e-mail e agendamento.
 
-Nível 2 — Power Automate
-└── Fluxos automatizados no Microsoft 365
-└── Gatilhos e ações
-└── Integração com SharePoint, Teams, Excel, Outlook
+Power Automate para fluxos dentro do ecossistema Microsoft 365 — gatilhos no Teams ou SharePoint, ações em Excel e Outlook.
 
-Nível 3 — Python Automation
-└── Manipulação de arquivos e pastas
-└── Geração automática de relatórios Excel/PDF
-└── Envio de e-mails com smtplib
-└── Agendamento com schedule/cron
+## O que estou explorando
 
-Nível 4 — APIs e Integrações
-└── Consumo de APIs REST com requests
-└── Autenticação (API Key, OAuth, JWT)
-└── Webhook e event-driven automations
-└── Integração com n8n
-
-Nível 5 — ETL e Pipelines
-└── Extract, Transform, Load com Python
-└── Orquestração básica de pipelines
-└── Conexão com bancos de dados
-└── Automação de ingestão de dados
-```
+APIs REST com autenticação — API Key, OAuth, Bearer token. ETL mais estruturado com Python: extract de múltiplas fontes, transform com Pandas, load para banco ou arquivo final. n8n para automações low-code com integrações entre sistemas.
 
 ---
 
-## Estrutura desta Stack
+## Estrutura
 
 ```
 automacao/
-├── power-automate/      # Fluxos Microsoft 365
-├── n8n/                 # Automações low-code com n8n
-├── apis/                # Consumo e integração de APIs REST
-├── etl/                 # Pipelines Extract-Transform-Load
-├── estudos-iniciais/    # Primeiros estudos e exercícios
-└── projetos/            # Projetos completos de automação
+├── power-automate/     fluxos Microsoft 365
+├── n8n/                automações low-code
+├── apis/               consumo e integração de APIs REST
+├── etl/                pipelines Extract-Transform-Load
+├── estudos-iniciais/   primeiros estudos
+└── projetos/           projetos completos de automação
 ```
 
 ---
 
-## Ferramentas
+## Projeto em vista
 
-| Ferramenta | Uso |
-|---|---|
-| Power Automate | Automação no ecossistema Microsoft 365 |
-| Python (requests, schedule) | Scripts de automação e ETL |
-| n8n | Automação low-code com integrações |
-| APIs REST | Integração entre sistemas |
-
----
-
-## Progresso
-
-- [ ] Power Automate básico
-- [ ] Scripts Python de automação
-- [ ] Consumo de APIs REST
-- [ ] ETL com Python
-- [ ] n8n workflows
-
----
-
-## Projetos Futuros
-
-- Automação de consolidação de relatórios diários
-- Pipeline de ingestão de dados de call center
-- Integração automática de dados entre sistemas
-- Gerador automático de relatórios gerenciais em PDF
+Pipeline completo de consolidação de relatório semanal: leitura automática dos arquivos de entrada, transformação com Pandas, geração do Excel formatado e envio por e-mail para os destinatários. Simples, mas elimina horas de trabalho manual toda semana.

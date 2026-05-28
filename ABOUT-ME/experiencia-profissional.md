@@ -1,72 +1,45 @@
 # Experiência Profissional
 
-## Secretaria da Economia do Estado de Goiás
-
-**Cargo:** Supervisor de Atendimento · Coordenador de Processos e Cobrança  
-**Setor:** Coordenação de Cobrança Administrativa  
-**Localização:** Goiânia, GO
+**Secretaria da Economia do Estado de Goiás — Coordenação de Cobrança Administrativa**
+Supervisor de Atendimento / Coordenador de Processos e Cobrança · Goiânia, GO
 
 ---
 
-## Tradução para Linguagem de Analytics
+Trabalho com cobrança administrativa pública há anos. Na prática, isso significa monitorar volume de atendimentos, acompanhar metas, identificar por que determinado setor está abaixo da produtividade esperada e apresentar tudo isso de forma que a gestão consiga tomar decisão.
 
-A atuação em gestão de cobrança pública é, na essência, um trabalho intensivo com dados. A tabela abaixo traduz as responsabilidades operacionais para o vocabulário de analytics:
-
-| Responsabilidade Operacional | Equivalente em Analytics |
-|---|---|
-| Supervisão de equipe de atendimento | Monitoramento de KPIs de produtividade por agente |
-| Acompanhamento de metas de cobrança | Análise de performance vs. target · variância e tendência |
-| Controle de SLA de atendimento | Análise de tempo médio, abandonos, taxa de resolução |
-| Relatórios gerenciais periódicos | Construção de dashboards executivos · automação de relatórios |
-| Identificação de gargalos operacionais | Análise de causa-raiz · diagnóstico baseado em dados |
-| Acompanhamento de produtividade | Séries temporais de output por agente · benchmarking interno |
-| Controle de processos administrativos | Modelagem de processos · análise de eficiência operacional |
-| Tomada de decisão operacional | Decision making baseado em indicadores quantitativos |
-| Gestão de inadimplência | Segmentação de carteira · análise de comportamento de pagamento |
-| Monitoramento de equipes | People analytics aplicado à operação |
+A maior parte do que faço no dia a dia envolve números. O problema é que, durante muito tempo, fiz esse trabalho sem ferramentas adequadas — Excel limitado, relatórios manuais que levavam horas, análises que dependiam de memória em vez de dados. Foi exatamente isso que me levou a estudar analytics de forma mais séria.
 
 ---
 
-## Competências Desenvolvidas na Prática
+## O que a experiência operacional me ensinou sobre dados
 
-### Inteligência Operacional
+Coordenar uma equipe de cobrança é, no fundo, um problema de monitoramento contínuo. As perguntas que mais aparecem são:
 
-- Construção e interpretação de indicadores de desempenho operacional
-- Monitoramento contínuo de produtividade e qualidade de atendimento
-- Análise de tendências e comportamentos ao longo do tempo
-- Identificação de desvios e acionamento corretivo baseado em dados
+- Por que a produtividade caiu nessa semana?
+- Qual agente está fora do SLA e desde quando?
+- A meta está factível dado o ritmo atual?
+- Onde está o gargalo que está freando o resultado?
 
-### Gestão Baseada em Métricas
-
-- Definição e acompanhamento de metas quantitativas
-- Análise de gap entre resultado esperado e realizado
-- Gestão por indicadores em ambiente de alta demanda
-- Relatórios de performance para alta gestão
-
-### Análise de Processos
-
-- Mapeamento e otimização de fluxos operacionais
-- Diagnóstico de ineficiências com base em dados
-- Padronização de procedimentos com foco em resultado mensurável
-- Controle de qualidade de processos de cobrança administrativa
-
-### Gestão de Dados Operacionais
-
-- Trabalho diário com grandes volumes de informações de contribuintes
-- Consolidação e análise de bases de dados de cobrança
-- Geração de insights para tomada de decisão gerencial
-- Controle de inadimplência com análise quantitativa
+Responder essas perguntas com precisão exige mais do que intuição. Exige dados organizados, consultas rápidas, visualizações que mostram a situação sem ambiguidade. Foi tentando resolver esses problemas reais que passei a estudar SQL, Power BI e Python com mais profundidade.
 
 ---
 
-## Contexto do Setor Público
+## Experiência acumulada na operação
 
-Trabalhar na Secretaria da Economia traz um desafio analítico específico: operar com dados em um ambiente onde a transparência, a eficiência e o impacto social são prioritários. Essa experiência moldou minha visão sobre como analytics precisa ser **prático, acessível e orientado a resultados concretos**.
+Ao longo do trabalho desenvolvei familiaridade prática com:
+
+- acompanhamento de indicadores de produtividade por agente e por setor
+- monitoramento de SLA — tempo médio, taxa de resolução, percentual dentro do prazo
+- análise de metas: realizado vs. planejado, variância, tendência
+- gestão de inadimplência e segmentação de carteira de cobrança
+- construção de relatórios gerenciais periódicos para alta gestão
+- diagnóstico de gargalos com base em dados operacionais
+- padronização de processos administrativos com foco em resultado mensurável
 
 ---
 
-## Posicionamento Técnico Atual
+## Por que isso importa para a transição para dados
 
-> Profissional com base sólida em gestão operacional e inteligência de negócios, construindo competências técnicas em Data Analytics para ampliar o impacto da análise quantitativa na gestão pública e em operações de alta complexidade.
+A vantagem de vir de uma operação é que já conheço as perguntas que precisam ser respondidas. Não preciso aprender o problema — preciso aprender as ferramentas para resolvê-lo melhor.
 
-**Foco atual:** Operational Analytics · BI · Automação · IA Aplicada à Gestão
+Isso orienta o que estudo: SQL para consultar bases de dados de cobrança, Power BI para construir dashboards que gestores realmente usem, Python para automatizar o que hoje é feito manualmente toda semana.

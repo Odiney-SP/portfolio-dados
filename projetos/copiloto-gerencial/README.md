@@ -1,84 +1,51 @@
-# Copiloto Gerencial com IA
+# Copiloto Gerencial
 
-> Status: Planejado
-
-Assistente inteligente para apoio à gestão operacional — combina dados estruturados com um modelo de linguagem para gerar insights, sumarizações e recomendações automaticamente.
+**planejado** · Python · LLMs · SQL
 
 ---
 
-## Objetivo
+A ideia desse projeto surgiu de uma situação recorrente: o gestor quer saber como foi a semana, mas a resposta depende de abrir planilha, filtrar por período, calcular percentual de atingimento e ainda formatar de forma que faça sentido na reunião.
 
-Construir um protótipo de copiloto gerencial capaz de:
+O copiloto faz exatamente isso — o gestor pergunta em linguagem natural, o sistema consulta os dados, processa e devolve a resposta com contexto.
 
-- Responder perguntas sobre indicadores operacionais em linguagem natural
-- Sumarizar relatórios de produtividade automaticamente
-- Identificar anomalias e alertar gestores com contexto explicativo
-- Gerar narrativas de desempenho a partir de dados brutos
+Exemplo:
+> "Como foi o desempenho essa semana? Quem ficou abaixo da meta?"
 
----
-
-## Caso de Uso
-
-Um gestor de cobrança pergunta:
-> "Como foi o desempenho da equipe esta semana? Quem ficou abaixo da meta?"
-
-O copiloto:
-1. Consulta os dados de produtividade da semana
-2. Calcula o atingimento individual e coletivo de cada meta
-3. Identifica quem ficou abaixo e por quanto
-4. Gera uma resposta clara e contextualizada em linguagem natural
+O sistema puxa os dados de produtividade da semana, calcula o atingimento individual, identifica quem está abaixo e por quanto, e devolve uma resposta clara sem precisar abrir nenhuma planilha.
 
 ---
 
-## Arquitetura Planejada
+## Como vai funcionar
 
 ```
-Dados → Banco SQL → Consulta Python → LLM (Claude/GPT) → Resposta
-                         ↑
-                    Contexto + Prompt
+pergunta → Python → consulta SQL → Pandas (prepara dados) → prompt + dados → LLM → resposta
 ```
 
----
-
-## Stack
-
-- **Python** — Backend, integração e orquestração
-- **SQL** — Consulta aos dados operacionais
-- **LLM API** — Claude (Anthropic) ou OpenAI para geração de linguagem
-- **Pandas** — Preparação dos dados antes de enviar ao modelo
-- **Streamlit** — Interface simples para demonstração
+Sem RAG, sem agentes complexos no MVP. Só dados bem preparados e prompt bem construído — que já resolve boa parte dos casos.
 
 ---
 
-## Funcionalidades Planejadas
+## Ferramentas
 
-- [ ] Consulta de indicadores por período via linguagem natural
-- [ ] Sumarização automática de relatório semanal
-- [ ] Detecção e explicação de anomalias em métricas
-- [ ] Geração de narrativa de desempenho
-- [ ] Interface conversacional simples
+Python · SQL · Claude API (Anthropic) · Pandas · Streamlit para interface
 
 ---
 
-## Estrutura do Projeto
+## Estrutura
 
 ```
 copiloto-gerencial/
-├── README.md
-├── src/                 # Código Python
-├── prompts/             # Templates de prompts documentados
-├── dados/               # Datasets de exemplo
-├── demo/                # Screenshots ou vídeo da demo
-└── docs/                # Documentação técnica
+├── src/        código Python
+├── prompts/    templates de prompts documentados
+├── dados/      datasets de exemplo
+├── demo/       screenshots ou gravação da demo
+└── docs/       documentação técnica
 ```
 
 ---
 
-## Cronograma
-
-- [ ] Definir escopo do MVP
-- [ ] Preparar base de dados de exemplo
-- [ ] Construir integração com LLM API
-- [ ] Desenvolver prompts especializados
-- [ ] Criar interface de demonstração
-- [ ] Documentar arquitetura e resultados
+- [ ] escopo do MVP definido
+- [ ] base de dados de exemplo
+- [ ] integração com LLM API
+- [ ] prompts especializados
+- [ ] interface Streamlit

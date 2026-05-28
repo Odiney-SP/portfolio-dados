@@ -1,84 +1,39 @@
 # Excel
 
-> Em construção contínua — cada modelo é um passo na jornada.
+Excel foi a primeira ferramenta de dados que usei no trabalho de forma séria, e ainda é relevante — especialmente porque é o que a maioria das equipes consegue abrir, compartilhar e entender. Dominar Excel avançado, incluindo Power Query e Power Pivot, faz diferença prática no dia a dia.
 
-Excel é a ferramenta de dados mais difundida nas organizações. Dominar Excel avançado — incluindo Power Query e Power Pivot — é competência essencial para qualquer analista de dados que atua em contextos corporativos e governamentais.
-
----
-
-## Por que Excel avançado importa
-
-- Presente em praticamente todas as organizações
-- Power Query permite ETL sem código
-- Power Pivot viabiliza modelagem dimensional no Excel
-- Base para transição para Power BI e outras ferramentas de BI
+Fórmulas avançadas, tabelas dinâmicas e Power Query básico estão consolidados. Estou avançando em Power Query com a linguagem M e em Power Pivot para modelagem no Excel.
 
 ---
 
-## Roadmap de Aprendizado
+## O que já uso
 
-```
-Nível 1 — Fórmulas Avançadas
-└── PROCX / PROCV / ÍNDICE + CORRESP
-└── SE, SEERRO, SE aninhado
-└── SOMASES, CONT.SES, MÉDIASES
-└── Funções de texto: TEXTO, CONCAT, ESQUERDA, DIREITA, LOCALIZAR
-└── Funções de data: HOJE, DATA, DATADIF, DIA.DA.SEMANA
+Fórmulas como PROCX, SOMASES, CONT.SES e SE aninhado fazem parte do dia a dia. Tabelas dinâmicas com segmentadores e campos calculados para análises rápidas. Power Query para importar e transformar dados de múltiplas fontes sem código — muito útil para consoldar planilhas mensais em uma base única.
 
-Nível 2 — Tabelas Dinâmicas
-└── Criação e configuração
-└── Campos calculados
-└── Segmentação de dados e linha do tempo
-└── Agrupamento de dados
+## O que estou aprendendo
 
-Nível 3 — Power Query
-└── Importação de múltiplas fontes (CSV, Excel, SQL)
-└── Transformações: divisão, mesclagem, pivotagem
-└── Atualização automática de consultas
-└── Parâmetros e consultas reutilizáveis
+Power Query em linguagem M — as transformações mais complexas que o editor visual não resolve. Power Pivot para modelagem com múltiplas tabelas relacionadas e DAX diretamente no Excel.
 
-Nível 4 — Power Pivot
-└── Modelagem de dados com múltiplas tabelas
-└── Relacionamentos entre tabelas
-└── DAX no Excel: medidas e KPIs
+## O que vem depois
 
-Nível 5 — Dashboards Executivos
-└── Design de layouts limpos e funcionais
-└── Gráficos dinâmicos e segmentadores
-└── Dashboards interativos sem VBA
-└── Storytelling visual com Excel
-```
+Dashboards executivos em Excel puro — layout limpo, gráficos dinâmicos, segmentadores. Útil para contextos onde Power BI ainda não foi adotado.
 
 ---
 
-## Estrutura desta Stack
+## Estrutura
 
 ```
 excel/
-├── formulas/            # Fórmulas avançadas com exemplos comentados
-├── power-query/         # Consultas e transformações de dados
-├── power-pivot/         # Modelagem e DAX no Excel
-├── dashboards/          # Modelos de dashboards executivos
-├── estudos-iniciais/    # Primeiros estudos e exercícios
-└── estudos/             # Estudos avulsos e referências
+├── formulas/          fórmulas avançadas com exemplos
+├── power-query/       consultas e transformações de dados
+├── power-pivot/       modelagem e DAX no Excel
+├── dashboards/        modelos de dashboards executivos
+├── estudos-iniciais/  primeiros estudos anotados
+└── estudos/           estudos avulsos e referências
 ```
 
 ---
 
-## Progresso
+## Projetos em vista
 
-- [x] Fórmulas avançadas (PROCX, SOMASES, SE aninhado)
-- [x] Tabelas dinâmicas
-- [x] Power Query básico
-- [ ] Power Query avançado (linguagem M)
-- [ ] Power Pivot e modelagem no Excel
-- [ ] Dashboards executivos completos
-
----
-
-## Projetos Futuros
-
-- Modelo de controle de metas operacionais
-- Dashboard de produtividade em Excel puro
-- Template de relatório gerencial mensal
-- Modelo de análise de carteira de inadimplência
+Template de relatório gerencial mensal automatizado via Power Query — leitura de arquivo novo, atualização automática das métricas e geração do relatório formatado. Modelo de acompanhamento de metas operacionais também está no plano.

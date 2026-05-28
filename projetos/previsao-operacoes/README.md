@@ -1,70 +1,40 @@
 # Previsão de Operações
 
-> Status: Planejado
-
-Modelo preditivo para antecipar comportamento operacional — volume de demanda, produtividade e tendências — permitindo gestão proativa em vez de reativa.
+**planejado** · Python · Scikit-learn · Prophet
 
 ---
 
-## Objetivo
+A gestão de uma operação costuma ser reativa: o volume de atendimentos sobe, a equipe não comporta e a meta fura. Esse projeto parte de uma pergunta simples — dá pra saber com antecedência o que vai acontecer?
 
-Construir um modelo de forecasting que permita:
-
-- Prever o volume de demanda para os próximos dias/semanas
-- Identificar tendências de queda ou pico de produtividade
-- Antecipar necessidades de alocação de equipe
-- Reduzir surpresas operacionais com visibilidade preditiva
+A ideia é construir um modelo de forecasting sobre dados históricos de volume de demanda e produtividade para prever o comportamento nas próximas semanas. Com isso, dá pra calibrar melhor as metas, planejar alocação de equipe e identificar tendências antes de virar problema.
 
 ---
 
-## Problema de Negócio
+## Abordagem
 
-Em operações de cobrança e atendimento, a falta de previsibilidade gera:
-- Alocação inadequada de equipe
-- Metas mal calibradas
-- Reação tardia a quedas de desempenho
-- Desperdício de capacidade operacional
-
----
-
-## Abordagem Técnica
-
-| Etapa | Técnica | Ferramenta |
-|---|---|---|
-| Coleta e limpeza | EDA + tratamento de outliers | Python / Pandas |
-| Análise exploratória | Visualização de séries temporais | Matplotlib / Plotly |
-| Modelagem | Regressão + Séries Temporais | Scikit-learn / Prophet |
-| Avaliação | RMSE, MAE, MAPE | Python |
-| Apresentação | Dashboard de previsão | Power BI |
+1. Base histórica de volume de atendimentos por período
+2. Análise exploratória da série temporal — tendência, sazonalidade, autocorrelação
+3. Tratamento de outliers e períodos atípicos
+4. Modelagem com Prophet (bom para séries com sazonalidade semanal) e regressão simples como baseline
+5. Avaliação com RMSE, MAE e MAPE
+6. Visualização das previsões em Power BI
 
 ---
 
-## Stack
-
-- **Python** — Pandas, Scikit-learn, Prophet, Matplotlib
-- **SQL** — Extração da base histórica
-- **Power BI** — Visualização das previsões
-
----
-
-## Estrutura do Projeto
+## Estrutura
 
 ```
 previsao-operacoes/
-├── README.md
-├── dados/               # Dataset histórico
-├── notebooks/           # Análise exploratória e modelagem
-├── modelos/             # Modelos treinados e avaliações
-└── dashboard/           # Visualização dos resultados
+├── dados/          dataset histórico
+├── notebooks/      análise exploratória e modelagem
+├── modelos/        modelos treinados e avaliações
+└── dashboard/      visualização dos resultados
 ```
 
 ---
 
-## Cronograma
-
-- [ ] Definir e coletar dataset histórico representativo
-- [ ] Análise exploratória da série temporal
-- [ ] Detecção e tratamento de sazonalidade
-- [ ] Construção e avaliação do modelo preditivo
-- [ ] Visualização das previsões
-- [ ] Documentação da metodologia
+- [ ] definir dataset histórico
+- [ ] análise exploratória da série
+- [ ] tratamento de sazonalidade
+- [ ] modelagem e avaliação
+- [ ] visualização das previsões

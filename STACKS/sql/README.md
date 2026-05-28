@@ -1,100 +1,43 @@
 # SQL
 
-> Em construção contínua — cada query adicionada é parte da jornada.
+SQL foi a primeira coisa que estudei com seriedade porque era o gap mais óbvio. No trabalho, precisava cruzar dados de sistemas diferentes, calcular produtividade por agente, filtrar por período. Fazer isso em Excel manualmente era lento demais.
 
-SQL é a linguagem universal dos dados. Ponto de entrada para qualquer analista que precisa extrair, transformar e entender informações em bancos relacionais.
-
----
-
-## Por que SQL é fundamental
-
-- Todo sistema de dados passa por um banco relacional em algum momento
-- É a habilidade mais exigida em vagas de analytics e BI
-- Permite responder perguntas de negócio diretamente na fonte
-- Base para pipelines, relatórios e dashboards
+Venho usando PostgreSQL como banco principal de estudo, com DBeaver para executar as queries. Cada pasta aqui guarda scripts comentados de um tópico específico.
 
 ---
 
-## Roadmap de Aprendizado
+## O que já domino
 
-```
-Nível 1 — Fundamentos
-└── SELECT, FROM, WHERE, ORDER BY, LIMIT
-└── Filtros com AND, OR, NOT, IN, BETWEEN, LIKE
-└── Funções de texto, data e numéricas
+Fundamentos estão sólidos: SELECT com filtros, JOINs de todos os tipos, GROUP BY com HAVING, subqueries simples. Consigo responder perguntas de negócio do dia a dia sem dificuldade.
 
-Nível 2 — Agrupamento e Agregação
-└── GROUP BY, HAVING
-└── COUNT, SUM, AVG, MAX, MIN
+## Onde estou avançando
 
-Nível 3 — Relacionamentos
-└── INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL OUTER JOIN
-└── Chaves primárias e estrangeiras
+CTEs e subqueries correlacionadas — ainda praticando. Window functions (ROW\_NUMBER, LAG, LEAD, SUM OVER) estão no foco agora. São muito úteis para análise de séries temporais e ranking de desempenho.
 
-Nível 4 — Subqueries e CTEs
-└── Subqueries correlacionadas e não-correlacionadas
-└── Common Table Expressions (WITH)
+## O que vem depois
 
-Nível 5 — Window Functions
-└── ROW_NUMBER, RANK, DENSE_RANK
-└── LAG, LEAD
-└── SUM/AVG OVER (PARTITION BY ... ORDER BY ...)
-
-Nível 6 — Modelagem
-└── Star Schema e Snowflake Schema
-└── Tabelas fato e dimensão
-
-Nível 7 — Avançado
-└── Índices e otimização
-└── Views, Procedures, Explain Plan
-```
+Modelagem dimensional — Star Schema, tabelas fato e dimensão — é o próximo passo importante, porque impacta diretamente como os dados chegam ao Power BI. Depois disso, otimização: índices, plano de execução, queries que escalam.
 
 ---
 
-## Estrutura desta Stack
+## Estrutura
 
 ```
 sql/
-├── fundamentos/         # SELECT, WHERE, ORDER BY, funções básicas
-├── joins/               # Todos os tipos de JOIN com exemplos
-├── agregacoes/          # GROUP BY, HAVING, funções de agregação
-├── subqueries/          # Subqueries simples e correlacionadas
-├── cte/                 # Common Table Expressions
-├── window-functions/    # Funções analíticas de janela
-├── modelagem/           # Star Schema, modelagem dimensional
-├── estudos-caso/        # Problemas reais resolvidos com SQL
-├── estudos-iniciais/    # Primeiros estudos e anotações
-└── projetos/            # Projetos completos com SQL
+├── fundamentos/        SELECT, filtros, funções básicas
+├── joins/              tipos de JOIN com exemplos práticos
+├── agregacoes/         GROUP BY, HAVING, funções de agregação
+├── subqueries/         subqueries simples e correlacionadas
+├── cte/                Common Table Expressions
+├── window-functions/   funções de janela analíticas
+├── modelagem/          Star Schema, modelagem dimensional
+├── estudos-caso/       problemas reais resolvidos com SQL
+├── estudos-iniciais/   primeiros scripts comentados
+└── projetos/           projetos completos
 ```
 
 ---
 
-## Ferramentas
+## Projetos em vista
 
-| Ferramenta | Uso |
-|---|---|
-| PostgreSQL | Principal banco de estudo e projetos |
-| MySQL | Estudo de compatibilidade |
-| DBeaver | Client SQL para exploração |
-| VS Code | Edição e organização de scripts |
-
----
-
-## Progresso
-
-- [x] SELECT básico e filtros
-- [x] JOINs fundamentais
-- [x] GROUP BY e agregações
-- [ ] Subqueries e CTEs
-- [ ] Window Functions
-- [ ] Modelagem dimensional
-- [ ] Otimização de queries
-
----
-
-## Projetos Futuros
-
-- Análise de produtividade operacional com SQL
-- Modelagem dimensional para dashboard de cobrança
-- Biblioteca de queries reutilizáveis para analytics operacional
-- Estudo de caso: análise de inadimplência
+Quero montar uma análise completa de produtividade operacional usando só SQL — cruzando volume de atendimento, SLA e atingimento de meta. Também estou construindo uma biblioteca de queries reutilizáveis (`query-library/`) para análises recorrentes.

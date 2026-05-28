@@ -1,75 +1,33 @@
 # Jornada de Aprendizado
 
-Registro da trajetória de formação técnica em dados, analytics e tecnologia.
+---
+
+Comecei a estudar dados de forma mais sistemática porque o trabalho exigiu. Acompanhar metas, monitorar produtividade e construir relatórios gerenciais sem as ferramentas certas é lento e impreciso. Chega um ponto em que dá para perceber que o problema não é falta de dados — é falta de capacidade de trabalhar com eles direito.
 
 ---
 
-## Por que esta jornada?
+## Como foi progredindo
 
-A experiência em gestão operacional me mostrou, na prática, o quanto decisões melhores dependem de dados bem interpretados. Percebi que o próximo passo natural era dominar as ferramentas que transformam dados brutos em inteligência real — e comecei essa jornada de forma estruturada e progressiva.
+**2024–2025 — primeiros estudos**
 
----
+Comecei pelo Excel de forma mais séria: Power Query, tabelas dinâmicas, fórmulas avançadas. Depois parti para SQL, que fez muito sentido desde cedo — a lógica de filtrar, agrupar e agregar dados é direta. Também explorei Power BI o suficiente para construir dashboards funcionais e aprendi o básico de Python: variáveis, loops, leitura de arquivos.
 
-## Linha do Tempo
+**2025–2026 — aprofundamento**
 
-### Fundamentos (2024–2025)
+SQL foi ficando mais interessante com CTEs e window functions. Em Python, Pandas abriu bastante coisa — limpeza de dados, transformações, cruzamento de bases. No Power BI avancei em modelagem e DAX. Comecei a entender estatística descritiva com mais rigor e a explorar automação com Python e Power Automate.
 
-- Primeiros estudos em SQL: SELECT, WHERE, JOIN, GROUP BY, agregações
-- Excel avançado: fórmulas complexas, Power Query, tabelas dinâmicas
-- Introdução ao Power BI: modelagem, DAX básico, visualizações
-- Python introdutório: variáveis, loops, funções, leitura de dados
-- Git e versionamento de código
+**2026 — agora**
 
-### Aprofundamento (2025–2026)
+Participando da Residência em Engenharia de Software da UFG (ResidênciaSI-2026-01), o que trouxe contato com desenvolvimento full stack, APIs, banco de dados relacional e práticas de engenharia de software. Em paralelo, estou avançando em estatística aplicada, machine learning e ETL. IA aplicada também entrou no radar — especialmente LLMs como ferramenta para analytics.
 
-- SQL intermediário a avançado: CTEs, window functions, subqueries, otimização
-- Python para dados: Pandas, NumPy, limpeza e transformação de dados
-- Power BI intermediário: relacionamentos, medidas calculadas, KPIs
-- Estatística descritiva: distribuições, medidas de tendência central, dispersão
-- Introdução à automação: Power Automate, scripts Python
-- APIs REST: conceitos, consumo, integração de dados
+**próximos passos**
 
-### Em Curso (2026)
-
-- Residência em Engenharia de Software — UFG (ResidênciaSI-2026-01)
-- Estatística aplicada a dados
-- Machine learning: regressão, classificação, clustering
-- Forecasting e séries temporais
-- ETL e engenharia de dados
-- IA aplicada: LLMs, prompt engineering, analytics assistants
-- Desenvolvimento full stack (formação complementar)
-
-### Próximos Passos (2026–2027)
-
-- Machine Learning aplicado a operações
-- MLOps básico
-- Engenharia de dados: pipelines, dbt, orquestração
-- IA generativa aplicada à gestão
-- Arquitetura analítica (Data Warehouse, Data Lakehouse)
+Machine learning aplicado a operações, forecasting, engenharia de dados (pipelines, dbt), arquitetura analítica e IA generativa aplicada à gestão.
 
 ---
 
-## Filosofia de Aprendizado
+## Como estudo
 
-> Aprender com consistência, documentar o processo e aplicar em problemas reais.
+Prefiro aprender por problemas reais. Pego um conceito, aplico em dados que conheço do trabalho ou em datasets públicos, e documento aqui. Não funciona bem pra mim estudar de forma completamente abstrata.
 
-Cada estudo é registrado. Cada conceito tem um contexto de aplicação. A progressão é deliberada — do fundamento ao avançado, do teórico ao prático.
-
----
-
-## Recursos de Estudo
-
-### Plataformas
-- Alura · DataCamp · Coursera · Udemy
-- Documentações oficiais (Python, Pandas, Power BI, PostgreSQL)
-- YouTube técnico e canais especializados
-
-### Prática
-- Datasets públicos (Kaggle, dados.gov.br, IBGE)
-- Projetos próprios documentados neste repositório
-- Aplicação no contexto profissional real
-
-### Comunidade
-- GitHub: acompanhamento de projetos open source
-- Stack Overflow e fóruns técnicos
-- Grupos de estudo e residência de software (UFG)
+Uso Alura, Coursera, DataCamp e documentações oficiais. Pratico com Kaggle, dados do governo federal e bases da SEFAZ-GO quando disponíveis. O GitHub serve como caderno — cada commit registra o que foi aprendido.

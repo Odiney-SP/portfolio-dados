@@ -1,66 +1,46 @@
 # Analytics — Setor Público
 
-> Status: Planejado
-
-Aplicação de analytics a dados públicos e operacionais do setor governamental, demonstrando como inteligência de dados transforma a gestão pública.
+**planejado** · SQL · Python · Power BI
 
 ---
 
-## Objetivo
+Trabalho no setor público e os dados estão disponíveis — portal da transparência, SEFAZ-GO, dados.gov.br, IBGE. A questão é que poucos os exploram com as ferramentas certas. Esse projeto é sobre pegar esses dados abertos e fazer análises que façam sentido para quem está dentro da gestão.
 
-Explorar datasets públicos do Estado de Goiás e de fontes abertas do governo federal para construir análises que demonstrem o valor de analytics no setor público.
-
----
-
-## Fontes de Dados Planejadas
-
-| Fonte | Dataset | Uso |
-|---|---|---|
-| Portal da Transparência — GO | Despesas e receitas do estado | Análise fiscal |
-| SEFAZ-GO (dados abertos) | Arrecadação tributária | Análise de receita |
-| IBGE | Indicadores socioeconômicos | Contexto regional |
-| TCU / CGU | Dados de execução orçamentária | Análise de gestão |
-| dados.gov.br | Múltiplas bases | Exploração geral |
+Quero construir análises que eu não consigo fazer no dia a dia porque não tenho acesso direto ao banco, mas que os dados públicos permitem — arrecadação tributária, execução orçamentária, comportamento de inadimplência fiscal.
 
 ---
 
-## Análises Planejadas
+## Análises que pretendo construir
 
-- Análise de arrecadação do ICMS por setor econômico
-- Evolução de despesas por função orçamentária
-- Estudo de inadimplência fiscal por porte de contribuinte
-- Comparativo de indicadores de gestão pública entre municípios goianos
-- Análise de sazonalidade em arrecadação tributária
-
----
-
-## Stack
-
-- **SQL** — Extração e transformação de dados
-- **Python** — Análise exploratória e visualizações
-- **Power BI** — Dashboards de contexto público
-- **Excel** — Análises rápidas e modelos de referência
+- arrecadação do ICMS por setor econômico e evolução ao longo do tempo
+- evolução de despesas por função orçamentária
+- sazonalidade em arrecadação — quando arrecada mais, quando arrecada menos e por quê
+- comparativo de indicadores entre municípios goianos
+- perfil de inadimplência fiscal por porte de contribuinte
 
 ---
 
-## Estrutura do Projeto
+## Fontes de dados
+
+Portal da Transparência — GO · SEFAZ-GO (dados abertos) · IBGE · TCU/CGU · dados.gov.br
+
+---
+
+## Estrutura
 
 ```
 analytics-setor-publico/
-├── README.md
-├── dados/               # Datasets públicos utilizados
-├── sql/                 # Queries de extração e análise
-├── notebooks/           # Análises exploratórias
-├── dashboard/           # Dashboards Power BI
-└── docs/                # Referências e fontes
+├── dados/          datasets públicos utilizados
+├── sql/            queries de extração e análise
+├── notebooks/      análises exploratórias
+├── dashboard/      dashboards Power BI
+└── docs/           referências e fontes
 ```
 
 ---
 
-## Cronograma
-
-- [ ] Selecionar dataset inicial representativo
-- [ ] Exploração e limpeza dos dados
-- [ ] Análise exploratória
-- [ ] Construção de visualizações e dashboard
-- [ ] Documentação com insights e conclusões
+- [ ] selecionar dataset inicial
+- [ ] exploração e limpeza
+- [ ] análise exploratória
+- [ ] visualizações e dashboard
+- [ ] documentação com conclusões

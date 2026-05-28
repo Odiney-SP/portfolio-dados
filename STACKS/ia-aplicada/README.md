@@ -1,91 +1,38 @@
 ﻿# IA Aplicada
 
-> Em construção contínua — cada experimento expande o entendimento sobre o que a IA pode fazer por operações reais.
+Comecei a explorar LLMs de forma mais séria depois de perceber que certas tarefas que fazemos manualmente — resumir relatórios longos, categorizar registros textuais, extrair informações de documentos — são exatamente o tipo de coisa que modelos de linguagem fazem bem.
 
-IA aplicada à gestão não é ficção científica — é a capacidade de usar modelos de linguagem, automação inteligente e analytics aumentado para tomar decisões melhores, mais rápido, com mais contexto.
-
----
-
-## Por que IA Aplicada para quem trabalha com dados
-
-- LLMs podem sumarizar grandes volumes de informações operacionais
-- Copilotos gerenciais reduzem o tempo de análise e extração de insights
-- Prompt engineering é uma habilidade técnica real e demandada
-- A combinação de IA + dados cria vantagens analíticas concretas
+A ideia não é substituir análise. É acelerar as partes repetitivas para sobrar mais tempo para o que realmente precisa de julgamento humano.
 
 ---
 
-## Roadmap de Aprendizado
+## O que estou explorando
 
-```
-Nível 1 — Fundamentos de LLMs
-└── Como funcionam os modelos de linguagem
-└── Casos de uso em analytics e gestão
-└── APIs: OpenAI, Anthropic (Claude), Gemini
+**Prompt engineering:** como estruturar prompts para obter saídas úteis e consistentes — JSON para integrar com código, tabelas para relatórios, análises com formato definido. Few-shot prompting e chain-of-thought fazem diferença real na qualidade da saída.
 
-Nível 2 — Prompt Engineering
-└── Técnicas: few-shot, chain-of-thought, role prompting
-└── Prompt para análise de dados e relatórios
-└── Estruturação de saídas (JSON, tabelas, markdown)
-└── Iteração e refinamento de prompts
+**Integração com dados:** consumo da API do Claude e da OpenAI via Python. A ideia é combinar uma consulta SQL ou um DataFrame do Pandas com um prompt bem construído para gerar narrativa ou insight automático sobre os dados.
 
-Nível 3 — Analytics Assistants
-└── Integração de LLMs com dados estruturados
-└── Text-to-SQL básico
-└── Geração automática de insights
-└── Sumarização de relatórios operacionais
+**Text-to-SQL:** explorar como descrever em linguagem natural o que quer consultar e obter a query correspondente — útil para usuários que precisam de dados mas não sabem SQL.
 
-Nível 4 — Aplicações Operacionais
-└── Copiloto gerencial com contexto de dados
-└── Classificação e categorização de textos
-└── Extração de informações de documentos
-└── Automação de análise de feedback
+## O que vem depois
 
-Nível 5 — Engenharia de IA Aplicada
-└── RAG (Retrieval-Augmented Generation)
-└── Agentes com ferramentas
-└── Integração com pipelines de dados
-```
+RAG (Retrieval-Augmented Generation) — conectar um LLM a uma base de documentos específica, como normativos ou relatórios históricos, para consulta contextualizada. Agentes com ferramentas — LLM que decide qual função chamar dependendo do que o usuário pergunta.
 
 ---
 
-## Estrutura desta Stack
+## Estrutura
 
 ```
 ia-aplicada/
-├── llms/                # Estudo de modelos de linguagem e APIs
-├── prompt-engineering/  # Técnicas e exemplos de prompts
-├── analytics-assistant/ # Experimentos de IA aplicada a dados
-├── estudos-iniciais/    # Primeiros estudos e experimentos
-└── projetos/            # Projetos práticos de IA aplicada
+├── llms/               fundamentos e APIs de modelos de linguagem
+├── prompt-engineering/ técnicas e exemplos de prompts documentados
+├── analytics-assistant experimentos de IA integrada a dados
+├── estudos-iniciais/   primeiros experimentos
+└── projetos/           projetos práticos de IA aplicada
 ```
 
 ---
 
-## Ferramentas e APIs
+## Projeto em vista
 
-| Ferramenta | Uso |
-|---|---|
-| Claude (Anthropic) | LLM principal para experimentação |
-| OpenAI API | Modelos GPT para integração |
-| LangChain | Orquestração de agentes e RAG |
-| Python (requests) | Consumo de APIs de IA |
-
----
-
-## Progresso
-
-- [ ] Fundamentos de LLMs
-- [ ] Prompt engineering estruturado
-- [ ] Integração com dados via API
-- [ ] Analytics assistant funcional
-- [ ] RAG com base de conhecimento própria
-
----
-
-## Projetos Futuros
-
-- Copiloto gerencial para análise de indicadores operacionais
-- Assistente de sumarização de relatórios de cobrança
-- Text-to-SQL para consultas em linguagem natural
-- Classificador automático de feedback operacional
+Copiloto gerencial simples: o usuário descreve em linguagem natural o que quer saber sobre os indicadores da semana, o sistema consulta os dados e o LLM gera uma resposta com contexto. Começo pelo MVP — sem RAG, sem agentes complexos. Apenas dados + prompt bem construído + saída clara.

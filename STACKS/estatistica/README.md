@@ -1,85 +1,37 @@
 ﻿# Estatística
 
-> Em construção contínua — cada conceito estudado consolida a base analítica.
+Estatística é a parte que muita gente pula e depois sente falta. Quando comecei a estudar machine learning, ficou evidente que sem entender distribuições, variância e correlação direito, qualquer modelo vira uma caixa preta sem interpretação.
 
-Estatística é o alicerce da análise de dados. Sem compreender distribuições, testes de hipótese e correlações, qualquer análise fica superficial. É o que separa um analista que descreve dados de um que os interpreta corretamente.
-
----
-
-## Por que Estatística é essencial
-
-- Permite distinguir padrões reais de ruído nos dados
-- Base para machine learning, forecasting e modelos preditivos
-- Sustenta decisões quantitativas com rigor metodológico
-- Evita interpretações equivocadas de métricas e indicadores
+Estou estudando com o livro do Bussab & Morettin e complementando com *Practical Statistics for Data Scientists* (Bruce & Bruce), que tem abordagem mais aplicada. A referência prática vem de tentar aplicar os conceitos em dados que já conheço do trabalho.
 
 ---
 
-## Roadmap de Aprendizado
+## Onde estou
 
-```
-Nível 1 — Estatística Descritiva
-└── Medidas de tendência central (média, mediana, moda)
-└── Medidas de dispersão (variância, desvio padrão, IQR)
-└── Distribuições de frequência e histogramas
-└── Boxplots e detecção de outliers
+Estatística descritiva está em bom nível: medidas de tendência central, dispersão, detecção de outliers com boxplot, histogramas e análise de distribuição. Uso isso regularmente para entender dados antes de qualquer análise mais sofisticada.
 
-Nível 2 — Probabilidade
-└── Conceitos básicos de probabilidade
-└── Distribuições de probabilidade (normal, binomial, Poisson)
-└── Teorema de Bayes
+Probabilidade e estatística inferencial estão em andamento — distribuições (normal, binomial, Poisson), intervalos de confiança e testes de hipótese básicos (t-test, z-test, p-valor).
 
-Nível 3 — Estatística Inferencial
-└── Amostragem e intervalos de confiança
-└── Testes de hipótese (z-test, t-test)
-└── p-valor e significância estatística
+## O que vem depois
 
-Nível 4 — Correlação e Regressão
-└── Correlação de Pearson e Spearman
-└── Regressão linear simples e múltipla
-└── Avaliação de modelos (R², RMSE, MAE)
-
-Nível 5 — Aplicações em Dados
-└── A/B testing
-└── Séries temporais: tendência e sazonalidade
-└── Estatística aplicada a operações
-```
+Correlação e regressão linear são o próximo bloco — importante tanto para entender relações entre variáveis quanto para os fundamentos de machine learning. Depois disso, séries temporais: tendência, sazonalidade e autocorrelação.
 
 ---
 
-## Estrutura desta Stack
+## Estrutura
 
 ```
 estatistica/
-├── descritiva/          # Medidas, distribuições, visualizações
-├── inferencial/         # Testes de hipótese, intervalos de confiança
-├── regressao/           # Regressão linear e modelos de previsão
-├── probabilidade/       # Distribuições e fundamentos probabilísticos
-├── estudos-iniciais/    # Primeiros estudos e exercícios
-└── estudos/             # Estudos avulsos e aplicações
+├── descritiva/         medidas, distribuições, visualizações
+├── inferencial/        testes de hipótese, intervalos de confiança
+├── regressao/          regressão linear e modelos de previsão
+├── probabilidade/      distribuições e fundamentos probabilísticos
+├── estudos-iniciais/   primeiros estudos
+└── estudos/            aplicações e estudos avulsos
 ```
 
 ---
 
-## Referências de Estudo
+## Aplicação prática em vista
 
-- **Estatística Básica** — Bussab & Morettin
-- **Practical Statistics for Data Scientists** — Bruce & Bruce
-
----
-
-## Progresso
-
-- [ ] Estatística descritiva completa
-- [ ] Distribuições de probabilidade
-- [ ] Testes de hipótese
-- [ ] Regressão linear
-- [ ] Aplicações em séries temporais
-
----
-
-## Projetos Futuros
-
-- Análise estatística de produtividade de equipes
-- Estudo de distribuição de volume de cobrança
-- Regressão para previsão de metas operacionais
+Análise da distribuição de volume de atendimento por dia da semana e hora — quero entender a sazonalidade operacional com rigor estatístico, não só visualmente. Regressão para prever atingimento de meta com base em indicadores de meio de mês.

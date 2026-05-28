@@ -1,63 +1,51 @@
-# Dashboard Executivo Operacional
+# Dashboard Operacional
 
-> Status: Em construção
-
-Painel de inteligência operacional para acompanhamento de indicadores de produtividade, SLA e desempenho de equipes — baseado em experiência real com gestão de cobrança no setor público.
+**em construção** · Power BI · SQL · DAX
 
 ---
 
-## Objetivo
+Este projeto nasceu de uma necessidade real: acompanhar produtividade, SLA e metas de uma equipe de cobrança sem depender de relatórios manuais que chegam com atraso e imprecisão.
 
-Construir um dashboard que responda às perguntas que gestores operacionais fazem todos os dias:
-
-- Como está a produtividade da equipe hoje versus a meta?
-- Quais setores estão acima ou abaixo do SLA?
-- Qual é a tendência de desempenho dos últimos 30 dias?
-- Quem são os destaques e onde estão os gargalos?
+A ideia é construir um painel que responda, em tempo real, as perguntas que aparecem toda semana na gestão: a equipe está dentro do SLA? Quem está abaixo da meta e por quanto? A tendência dos últimos 30 dias é de melhora ou queda?
 
 ---
 
-## Indicadores Planejados
+## Indicadores que vou monitorar
 
-| KPI | Descrição | Meta |
-|---|---|---|
-| Produtividade / Agente | Ações realizadas por colaborador | A definir |
-| SLA de Atendimento | % de atendimentos dentro do prazo | ≥ 95% |
-| Taxa de Resolução | % de casos resolvidos na primeira interação | A definir |
-| Volume de Demanda | Quantidade de casos abertos por período | Acompanhamento |
-| Tempo Médio de Atendimento | TMA por tipo de caso | A definir |
-| Atingimento de Meta | Realizado vs. meta por período | 100% |
+- produtividade por agente (ações realizadas vs. meta)
+- SLA — percentual de atendimentos dentro do prazo
+- taxa de resolução na primeira interação
+- volume de demanda por período
+- tempo médio de atendimento por tipo de caso
+- atingimento de meta: realizado vs. planejado
 
 ---
 
-## Stack Planejada
+## Como está sendo construído
 
-- **Power BI** — visualização e publicação do dashboard
-- **SQL** — extração e transformação dos dados base
-- **DAX** — medidas calculadas e inteligência de tempo
-- **Excel / Power Query** — pré-processamento quando necessário
+1. Dataset simulado com estrutura próxima do dado real (anonimizado)
+2. Modelagem dimensional no Power BI — Star Schema com tabela fato de atendimentos e dimensões de agente, setor, período e tipo de caso
+3. Queries SQL de preparação e transformação
+4. Medidas DAX para os KPIs principais — incluindo inteligência de tempo para comparativo com período anterior
+5. Layout limpo com foco em leitura rápida para quem gerencia a operação
 
 ---
 
-## Estrutura do Projeto
+## Estrutura
 
 ```
 dashboard-operacional/
-├── README.md
-├── dados/               # Datasets (anonimizados ou simulados)
-├── sql/                 # Queries de extração e preparação
-├── dashboard/           # Arquivo .pbix ou prints do dashboard
-└── documentacao/        # Definições de métricas e regras de negócio
+├── dados/          dataset simulado
+├── sql/            queries de extração e preparação
+├── dashboard/      arquivo .pbix e prints
+└── documentacao/   definição das métricas e regras de negócio
 ```
 
 ---
 
-## Cronograma
-
-- [ ] Definir dataset representativo
-- [ ] Modelagem dimensional (Star Schema)
-- [ ] Queries SQL de preparação
-- [ ] Construção do modelo no Power BI
-- [ ] Desenvolvimento das medidas DAX
-- [ ] Design e layout do dashboard
-- [ ] Documentação das métricas
+- [ ] dataset definido
+- [ ] modelagem dimensional
+- [ ] queries SQL
+- [ ] modelo no Power BI
+- [ ] medidas DAX
+- [ ] layout e publicação

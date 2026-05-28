@@ -1,94 +1,43 @@
 # Power BI
 
-> Em construção contínua — cada dashboard é um passo na jornada.
+Power BI foi a ferramenta que fez os dados ficarem visíveis para a gestão. Consigo construir um dashboard que mostra produtividade, SLA e metas em tempo real — e a equipe consegue usar sem depender de relatório manual. Esse impacto prático foi o que me fez investir tempo real na ferramenta.
 
-Power BI é a principal ferramenta de Business Intelligence do ecossistema Microsoft. Une modelagem de dados, transformação, linguagem DAX e visualização em uma plataforma integrada.
-
----
-
-## Por que Power BI
-
-- Ferramenta BI mais adotada em organizações brasileiras
-- Combina Power Query (ETL), modelagem e visualização
-- DAX permite métricas complexas sem código externo
-- Integração nativa com Excel, SQL Server, Azure e APIs REST
-- Publicação e compartilhamento de dashboards em nuvem
+Trabalho com Power BI há algum tempo. Importação, Power Query, modelagem com relacionamentos, DAX básico — essas partes estão consolidadas. Estou avançando agora em DAX mais complexo e no uso correto de tabelas de calendário para inteligência de tempo.
 
 ---
 
-## Roadmap de Aprendizado
+## O que domino
 
-```
-Nível 1 — Fundamentos
-└── Importação de dados (Excel, CSV, SQL)
-└── Power Query: limpeza e transformação básica
-└── Modelagem: relacionamentos entre tabelas
-└── Visualizações básicas (gráficos, cartões, tabelas)
+**Power Query:** importação de Excel, CSV e SQL, transformações de limpeza, merge e append de tabelas. Já consigo preparar o dado antes de modelar sem precisar de Python ou SQL.
 
-Nível 2 — DAX Básico
-└── Medidas calculadas vs. colunas calculadas
-└── SUM, COUNT, AVERAGE, MAX, MIN
-└── CALCULATE e contexto de filtro
-└── Relações e RELATED
+**Modelagem:** relacionamentos entre tabelas fato e dimensão, cardinalidade, direção de filtro. Entendo Star Schema e aplico nos projetos.
 
-Nível 3 — Power Query Intermediário
-└── Linguagem M: transformações customizadas
-└── Merge e Append de tabelas
-└── Tratamento de erros e nulos
-└── Parâmetros e funções reutilizáveis
+**DAX:** medidas com SUM, COUNT, AVERAGE, CALCULATE com FILTER e ALL. Uso variáveis (VAR/RETURN) para deixar as fórmulas legíveis. Percentual do total, variação vs. período anterior básica.
 
-Nível 4 — DAX Intermediário
-└── Inteligência de tempo (DATEADD, SAMEPERIODLASTYEAR)
-└── FILTER e ALL para modificar contexto
-└── Tabelas de calendário e dimensão de data
-└── Variáveis (VAR ... RETURN)
+## O que estou aprendendo
 
-Nível 5 — Modelagem Avançada
-└── Star Schema no Power BI
-└── Tabelas bridge e relações many-to-many
-└── Role-playing dimensions
-└── Incremental refresh
+Inteligência de tempo — DATEADD, SAMEPERIODLASTYEAR, TOTALYTD — é o foco atual. Tabelas de calendário corretas fazem toda a diferença em análises de tendência. Depois, Power Query em linguagem M para transformações que o editor visual não resolve.
 
-Nível 6 — Design e Performance
-└── Princípios de storytelling com dados
-└── Layout e UX de dashboards executivos
-└── Otimização de modelos e queries DAX
-└── Row-Level Security (RLS)
-```
+## O que vem depois
+
+Otimização de modelo: reduzir colunas desnecessárias, evitar medidas lentas, entender como o motor de consulta funciona. Row-Level Security para dashboards compartilhados com acesso por unidade.
 
 ---
 
-## Estrutura desta Stack
+## Estrutura
 
 ```
 power-bi/
-├── dax/                 # Medidas, fórmulas e padrões DAX
-├── power-query/         # Transformações em M
-├── modelagem/           # Star Schema, relacionamentos, dimensões
-├── dashboards/          # Projetos de dashboards documentados
-├── estudos-iniciais/    # Primeiros estudos e exercícios
-└── projetos/            # Projetos completos .pbix
+├── dax/              medidas e padrões DAX documentados
+├── power-query/      transformações em M
+├── modelagem/        Star Schema, relacionamentos, dimensões
+├── dashboards/       projetos de dashboards
+├── estudos-iniciais/ primeiros estudos anotados
+└── projetos/         arquivos .pbix completos
 ```
 
 ---
 
-## Progresso
+## Projetos em vista
 
-- [x] Importação e conexão de dados
-- [x] Power Query básico
-- [x] Modelagem e relacionamentos
-- [x] Visualizações e layout
-- [x] DAX básico (SUM, CALCULATE, FILTER)
-- [ ] DAX intermediário (inteligência de tempo)
-- [ ] Power Query avançado (linguagem M)
-- [ ] Otimização e performance
-- [ ] Row-Level Security
-
----
-
-## Projetos Futuros
-
-- Dashboard executivo de produtividade operacional
-- Painel de SLA e indicadores de cobrança
-- Dashboard de análise de inadimplência por segmento
-- Modelo de relatório gerencial mensal automatizado
+Dashboard de produtividade operacional com SLA, metas e tendência — esse é o projeto principal. Quero publicar um .pbix funcional com dados simulados para demonstrar a modelagem e as medidas DAX construídas.
