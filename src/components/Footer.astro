@@ -1,0 +1,54 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <span class="footer-name">Odiney Souza</span>
+    <span class="footer-copy">&copy; {year} · Analytics &amp; Data</span>
+    <div class="footer-links">
+      <a href="https://github.com/Odiney-SP" target="_blank" rel="noopener">GitHub</a>
+      <a href="mailto:odineygaviao@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+.footer {
+  border-top: 1px solid var(--border);
+  padding-block: 2rem;
+  margin-top: 4rem;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.footer-name {
+  font-weight: 500;
+  font-size: .875rem;
+}
+
+.footer-copy {
+  font-size: .8rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.footer-links {
+  display: flex;
+  gap: 1rem;
+  margin-left: auto;
+}
+
+.footer-links a {
+  font-size: .8rem;
+  color: var(--text-muted);
+  transition: color .15s;
+}
+
+.footer-links a:hover { color: var(--text); }
+</style>

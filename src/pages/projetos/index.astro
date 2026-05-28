@@ -1,0 +1,264 @@
+---
+import Base from '@/layouts/Base.astro';
+
+const base = '/portfolio-dados';
+
+const projects = [
+  {
+    slug: 'dashboard-operacional',
+    title: 'Dashboard Operacional',
+    desc: 'Dashboard para monitoramento de produtividade, SLA e metas de cobrança administrativa. Visão gerencial em tempo útil para tomada de decisão.',
+    status: 'building',
+    statusLabel: 'em construção',
+    tools: ['Power BI', 'SQL', 'DAX'],
+    learnings: ['Modelagem dimensional', 'Medidas DAX', 'Design de relatório gerencial'],
+    ghPath: 'portfolio-dados/tree/main/projetos/dashboard-operacional',
+  },
+  {
+    slug: 'previsao-operacoes',
+    title: 'Previsão de Operações',
+    desc: 'Modelo de forecasting para antecipar volume de atendimentos e identificar tendências de inadimplência com base em séries temporais.',
+    status: 'planned',
+    statusLabel: 'planejado',
+    tools: ['Python', 'Scikit-learn', 'Prophet'],
+    learnings: ['Séries temporais', 'Prophet', 'Validação de modelos preditivos'],
+    ghPath: 'portfolio-dados/tree/main/projetos/previsao-operacoes',
+  },
+  {
+    slug: 'automacao-relatorios',
+    title: 'Automação de Relatórios',
+    desc: 'Pipeline de automação para geração de relatórios gerenciais periódicos — eliminando horas de trabalho manual semanal com Python e ETL.',
+    status: 'planned',
+    statusLabel: 'planejado',
+    tools: ['Python', 'Pandas', 'ETL'],
+    learnings: ['ETL com Python', 'Automação de planilhas', 'Agendamento de jobs'],
+    ghPath: 'portfolio-dados/tree/main/projetos/automacao-relatorios',
+  },
+  {
+    slug: 'analytics-setor-publico',
+    title: 'Analytics — Setor Público',
+    desc: 'Análise de dados abertos do setor público goiano: arrecadação ICMS, execução orçamentária, sazonalidade e perfil de inadimplência fiscal.',
+    status: 'planned',
+    statusLabel: 'planejado',
+    tools: ['SQL', 'Python', 'Power BI'],
+    learnings: ['Dados abertos governamentais', 'SEFAZ-GO', 'Portal da Transparência'],
+    ghPath: 'portfolio-dados/tree/main/projetos/analytics-setor-publico',
+  },
+  {
+    slug: 'copiloto-gerencial',
+    title: 'Copiloto Gerencial',
+    desc: 'Interface conversacional sobre dados operacionais usando LLMs — permitindo que gestores façam perguntas sobre indicadores em linguagem natural.',
+    status: 'planned',
+    statusLabel: 'planejado',
+    tools: ['LLMs', 'Python', 'API'],
+    learnings: ['LLM + dados estruturados', 'RAG', 'Interface conversacional'],
+    ghPath: 'portfolio-dados/tree/main/projetos/copiloto-gerencial',
+  },
+  {
+    slug: 'end-to-end',
+    title: 'Pipeline End-to-End',
+    desc: 'Projeto completo cobrindo extração, transformação, modelagem, visualização e entrega — demonstrando domínio do ciclo completo de dados.',
+    status: 'planned',
+    statusLabel: 'planejado',
+    tools: ['dbt', 'Python', 'SQL', 'Power BI'],
+    learnings: ['Engenharia de dados', 'dbt', 'Arquitetura analítica'],
+    ghPath: 'portfolio-dados/tree/main/projetos/end-to-end',
+  },
+];
+---
+
+<Base
+  title="Projetos — Odiney Souza"
+  description="Projetos de analytics, dashboards, automação e ML aplicados a problemas reais do setor público."
+>
+  <section class="section">
+    <div class="container">
+      <a href={`${base}/`} class="back-link label">← Home</a>
+
+      <div class="page-header">
+        <p class="label" style="margin-bottom:.75rem; margin-top:1.5rem">projetos</p>
+        <h1>Análises e dashboards</h1>
+        <p class="page-desc">
+          Projetos que combinam múltiplas ferramentas e cobrem o ciclo completo — da extração à
+          visualização. Documento desde o início, antes de estar pronto, porque o processo importa
+          tanto quanto o resultado.
+        </p>
+      </div>
+
+      <!-- LEGENDA DE STATUS -->
+      <div class="status-legend">
+        <span class="status building">em construção</span>
+        <span class="status planned">planejado</span>
+        <span class="label" style="color:var(--text-faint)">· todos têm README com contexto e abordagem</span>
+      </div>
+
+      <!-- GRID -->
+      <div class="projects-grid">
+        {projects.map(p => (
+          <article class={`project-card card ${p.status === 'planned' ? 'planned' : ''}`}>
+            <div class="project-header">
+              <span class={`status ${p.status}`}>{p.statusLabel}</span>
+            </div>
+
+            <h2 class="project-title">{p.title}</h2>
+            <p class="project-desc">{p.desc}</p>
+
+            <div class="project-tools">
+              {p.tools.map(t => <span class="badge">{t}</span>)}
+            </div>
+
+            <div class="project-learnings">
+              <p class="label" style="margin-bottom:.4rem">o que estudo aqui</p>
+              <ul class="learnings-list">
+                {p.learnings.map(l => <li>{l}</li>)}
+              </ul>
+            </div>
+
+            <div class="project-footer">
+              <a
+                href={`https://github.com/Odiney-SP/${p.ghPath}`}
+                target="_blank"
+                rel="noopener"
+                class="btn btn-ghost project-btn"
+              >
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                </svg>
+                Ver no GitHub
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div class="bottom-note">
+        <p class="label">nota</p>
+        <p>
+          Dados usados são simulados ou de fontes abertas — nada de dados sensíveis ou de produção.
+          Cada projeto tem um README com contexto, abordagem e estado atual.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+.back-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color .15s;
+}
+.back-link:hover { color: var(--text); }
+
+.page-header { margin-bottom: 2rem; }
+
+.page-desc {
+  color: var(--text-muted);
+  max-width: 600px;
+  line-height: 1.75;
+  margin-top: .75rem;
+}
+
+.status-legend {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+
+.project-card.planned {
+  opacity: .8;
+}
+
+.project-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.project-title {
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.project-desc {
+  font-size: .875rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  flex: 1;
+}
+
+.project-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem;
+}
+
+.project-learnings {
+  padding-top: .75rem;
+  border-top: 1px solid var(--border);
+}
+
+.learnings-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+}
+
+.learnings-list li {
+  font-size: .8rem;
+  color: var(--text-muted);
+  padding-left: .75rem;
+  position: relative;
+}
+
+.learnings-list li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+.project-footer {
+  margin-top: auto;
+  padding-top: .75rem;
+  border-top: 1px solid var(--border);
+}
+
+.project-btn {
+  width: 100%;
+  justify-content: center;
+  font-size: .8rem;
+}
+
+.bottom-note {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  max-width: 600px;
+}
+
+.bottom-note .label { margin-bottom: .35rem; }
+
+.bottom-note p:last-child {
+  font-size: .875rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+</style>

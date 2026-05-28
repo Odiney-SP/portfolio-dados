@@ -1,0 +1,354 @@
+---
+import Base from '@/layouts/Base.astro';
+
+const base = '/portfolio-dados';
+
+const reading = [
+  {
+    title: 'Storytelling com Dados',
+    author: 'Cole Nussbaumer Knaflic',
+    status: 'reading',
+    statusLabel: 'lendo',
+    note: 'Comunicação visual de dados. Mudou como penso em dashboards — menos é mais, e o gráfico precisa ter um argumento.',
+    tags: ['Visualização', 'Comunicação', 'Dashboards'],
+  },
+  {
+    title: 'Python para Análise de Dados',
+    author: 'Wes McKinney',
+    status: 'reading',
+    statusLabel: 'lendo',
+    note: 'Referência do Pandas. Leio em paralelo com a prática, consultando o capítulo relevante enquanto estudo aquela funcionalidade.',
+    tags: ['Python', 'Pandas', 'Análise de Dados'],
+  },
+  {
+    title: 'Estatística Básica',
+    author: 'Bussab & Morettin',
+    status: 'reading',
+    statusLabel: 'lendo',
+    note: 'Denso mas sólido. Base teórica para os estudos de estatística aplicada.',
+    tags: ['Estatística', 'Matemática'],
+  },
+  {
+    title: 'Rápido e Devagar',
+    author: 'Daniel Kahneman',
+    status: 'done',
+    statusLabel: 'lido',
+    note: 'Não é técnico, mas é muito relevante. Entender vieses cognitivos muda como você interpreta dados e como apresenta análises para quem decide.',
+    tags: ['Cognição', 'Tomada de Decisão'],
+  },
+];
+
+const queue = [
+  { title: 'Data Science para Negócios', author: 'Provost & Fawcett', area: 'Analytics', desc: 'Fundamentos de ciência de dados aplicada a decisões de negócio' },
+  { title: 'Hands-On Machine Learning', author: 'Aurélien Géron', area: 'ML', desc: 'Scikit-learn e modelos preditivos na prática' },
+  { title: 'Practical Statistics for Data Scientists', author: 'Bruce & Bruce', area: 'Estatística', desc: 'Estatística com abordagem prática para cientistas de dados' },
+  { title: 'Competing on Analytics', author: 'Davenport & Harris', area: 'Analytics', desc: 'Analytics como vantagem organizacional e estratégica' },
+  { title: 'The Data Warehouse Toolkit', author: 'Ralph Kimball', area: 'Engenharia', desc: 'Modelagem dimensional — referência da área' },
+  { title: 'Designing Data-Intensive Applications', author: 'Martin Kleppmann', area: 'Engenharia', desc: 'Sistemas de dados em escala — como funcionam por dentro' },
+  { title: 'Fundamentals of Data Engineering', author: 'Reis & Housley', area: 'Engenharia', desc: 'Engenharia de dados de ponta a ponta' },
+];
+
+const platforms = [
+  { name: 'Alura', focus: 'SQL · Python · Power BI · Automação', status: 'active' },
+  { name: 'DataCamp', focus: 'Python · Pandas · SQL · Estatística', status: 'active' },
+  { name: 'Coursera', focus: 'ML · Estatística · IA', status: 'active' },
+  { name: 'Kaggle Learn', focus: 'Python · ML · SQL · Visualização', status: 'active' },
+  { name: 'Microsoft Learn', focus: 'Power BI · Azure · SQL Server', status: 'active' },
+  { name: 'UFG — ResidênciaSI-2026-01', focus: 'React · FastAPI · PostgreSQL · DevOps · Git', status: 'active' },
+];
+
+const certs = [
+  { name: 'Residência em Engenharia de Software', org: 'UFG', year: '2026', status: 'in_progress', area: 'Engenharia de Software' },
+];
+---
+
+<Base
+  title="Biblioteca — Odiney Souza"
+  description="Livros, cursos, plataformas e trilha de aprendizado em analytics, dados e IA."
+>
+  <section class="section">
+    <div class="container">
+      <a href={`${base}/`} class="back-link label">← Home</a>
+
+      <div class="page-header">
+        <p class="label" style="margin-bottom:.75rem; margin-top:1.5rem">biblioteca</p>
+        <h1>Leituras, cursos e trilha</h1>
+        <p class="page-desc">
+          O que estou lendo, o que já li, o que pretendo ler — e onde estudo. Atualizado à medida
+          que o percurso avança.
+        </p>
+      </div>
+
+      <!-- LEITURAS -->
+      <div class="sub-section">
+        <p class="label section-label">leituras</p>
+        <div class="books-grid">
+          {reading.map(b => (
+            <div class="book-card card">
+              <div class="book-header">
+                <span class={`status ${b.status}`}>{b.statusLabel}</span>
+              </div>
+              <h3 class="book-title">{b.title}</h3>
+              <span class="book-author">{b.author}</span>
+              <p class="book-note">{b.note}</p>
+              <div class="book-tags">
+                {b.tags.map(t => <span class="badge">{t}</span>)}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <hr class="divider" style="margin-block:2.5rem" />
+
+      <!-- FILA DE LEITURA -->
+      <div class="sub-section">
+        <p class="label section-label">na fila</p>
+        <div class="queue-list">
+          {queue.map(b => (
+            <div class="queue-item card">
+              <div class="queue-meta">
+                <span class="badge purple">{b.area}</span>
+              </div>
+              <div class="queue-content">
+                <span class="queue-title">{b.title}</span>
+                <span class="queue-author">{b.author}</span>
+              </div>
+              <p class="queue-desc">{b.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <hr class="divider" style="margin-block:2.5rem" />
+
+      <!-- PLATAFORMAS -->
+      <div class="sub-section">
+        <p class="label section-label">plataformas de estudo</p>
+        <div class="platforms-grid">
+          {platforms.map(p => (
+            <div class="platform-card card">
+              <div class="platform-header">
+                <span class="platform-name">{p.name}</span>
+                <span class="status">{p.status === 'active' ? 'ativo' : p.status}</span>
+              </div>
+              <p class="platform-focus">{p.focus}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <hr class="divider" style="margin-block:2.5rem" />
+
+      <!-- CERTIFICAÇÕES -->
+      <div class="sub-section">
+        <p class="label section-label">formações e certificações</p>
+        <div class="certs-list">
+          {certs.map(c => (
+            <div class="cert-card card">
+              <div class="cert-header">
+                <div>
+                  <h3 class="cert-name">{c.name}</h3>
+                  <span class="cert-org">{c.org} · {c.year}</span>
+                </div>
+                <span class={`status ${c.status === 'in_progress' ? 'building' : ''}`}>
+                  {c.status === 'in_progress' ? 'em andamento' : 'concluído'}
+                </span>
+              </div>
+              <span class="badge">{c.area}</span>
+            </div>
+          ))}
+          <div class="cert-placeholder card">
+            <p class="label">certificações em andamento</p>
+            <p>Sendo obtidas em paralelo via Alura, DataCamp e Coursera — serão adicionadas aqui ao serem concluídas.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="cta-row">
+        <a href={`${base}/estudos`} class="btn btn-primary">Ver progresso de estudos</a>
+        <a href={`${base}/stacks`} class="btn btn-ghost">Stacks técnicas</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+.back-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color .15s;
+}
+.back-link:hover { color: var(--text); }
+
+.page-header { margin-bottom: 2rem; }
+
+.page-desc {
+  color: var(--text-muted);
+  max-width: 560px;
+  line-height: 1.75;
+  margin-top: .75rem;
+}
+
+.sub-section { margin-bottom: .5rem; }
+
+.section-label { margin-bottom: 1.25rem; display: block; }
+
+/* Books */
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.book-card {
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+}
+
+.book-header {}
+
+.book-title {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.book-author {
+  font-size: .8rem;
+  color: var(--accent);
+  font-family: var(--font-mono);
+}
+
+.book-note {
+  font-size: .875rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  flex: 1;
+}
+
+.book-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem;
+  margin-top: auto;
+}
+
+/* Queue */
+.queue-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: .75rem;
+}
+
+.queue-item {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  padding: 1rem 1.25rem;
+}
+
+.queue-meta {}
+
+.queue-content {
+  display: flex;
+  flex-direction: column;
+  gap: .15rem;
+}
+
+.queue-title {
+  font-size: .9rem;
+  font-weight: 500;
+}
+
+.queue-author {
+  font-size: .78rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.queue-desc {
+  font-size: .8rem;
+  color: var(--text-faint);
+  line-height: 1.5;
+}
+
+/* Platforms */
+.platforms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: .75rem;
+}
+
+.platform-card {}
+
+.platform-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: .5rem;
+}
+
+.platform-name {
+  font-weight: 500;
+  font-size: .9rem;
+}
+
+.platform-focus {
+  font-size: .8rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  line-height: 1.5;
+}
+
+/* Certs */
+.certs-list {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  max-width: 700px;
+}
+
+.cert-card {}
+
+.cert-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: .75rem;
+}
+
+.cert-name {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: .25rem;
+}
+
+.cert-org {
+  font-size: .8rem;
+  color: var(--accent);
+  font-family: var(--font-mono);
+}
+
+.cert-placeholder {
+  opacity: .6;
+}
+
+.cert-placeholder .label { margin-bottom: .4rem; }
+
+.cert-placeholder p {
+  font-size: .875rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.cta-row {
+  display: flex;
+  gap: .75rem;
+  flex-wrap: wrap;
+  margin-top: 2.5rem;
+}
+</style>

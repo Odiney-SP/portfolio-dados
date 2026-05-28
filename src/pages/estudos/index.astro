@@ -1,0 +1,417 @@
+---
+import Base from '@/layouts/Base.astro';
+
+const base = '/portfolio-dados';
+
+const areas = [
+  {
+    id: 'sql',
+    name: 'SQL',
+    status: 'active',
+    statusLabel: 'ativo',
+    progress: 65,
+    topics: [
+      { name: 'Fundamentos e SELECT', done: true },
+      { name: 'JOINs e relações', done: true },
+      { name: 'GROUP BY e agregações', done: true },
+      { name: 'CTEs', done: true },
+      { name: 'Window Functions', done: true },
+      { name: 'Subqueries avançadas', done: false },
+      { name: 'Performance e índices', done: false },
+      { name: 'SQL para ML features', done: false },
+    ],
+    notes: 'cheat-sheets/sql-cheatsheet.md',
+    ghLink: `https://github.com/Odiney-SP/portfolio-dados/tree/main/query-library`,
+    linkLabel: 'query-library/',
+  },
+  {
+    id: 'python',
+    name: 'Python',
+    status: 'active',
+    statusLabel: 'ativo',
+    progress: 45,
+    topics: [
+      { name: 'Sintaxe e tipos de dados', done: true },
+      { name: 'Estruturas de controle', done: true },
+      { name: 'Funções e módulos', done: true },
+      { name: 'Pandas — básico', done: true },
+      { name: 'Pandas — avançado', done: false },
+      { name: 'Visualização (Matplotlib/Seaborn)', done: false },
+      { name: 'Automação de arquivos', done: false },
+      { name: 'APIs e requests', done: false },
+    ],
+    notes: null,
+    ghLink: `https://github.com/Odiney-SP/portfolio-dados/tree/main/python-snippets`,
+    linkLabel: 'python-snippets/',
+  },
+  {
+    id: 'powerbi',
+    name: 'Power BI · DAX',
+    status: 'active',
+    statusLabel: 'ativo',
+    progress: 55,
+    topics: [
+      { name: 'Conexão de dados', done: true },
+      { name: 'Power Query básico', done: true },
+      { name: 'Modelagem relacional', done: true },
+      { name: 'DAX básico (SUM, CALCULATE)', done: true },
+      { name: 'Funções de tempo (YTD, MoM)', done: false },
+      { name: 'Medidas complexas com variáveis', done: false },
+      { name: 'Design de relatório gerencial', done: false },
+      { name: 'Publicação e atualização', done: false },
+    ],
+    notes: null,
+    ghLink: `https://github.com/Odiney-SP/portfolio-dados/tree/main/dax-library`,
+    linkLabel: 'dax-library/',
+  },
+  {
+    id: 'estatistica',
+    name: 'Estatística',
+    status: 'building',
+    statusLabel: 'em andamento',
+    progress: 40,
+    topics: [
+      { name: 'Estatística descritiva', done: true },
+      { name: 'Distribuições de probabilidade', done: false },
+      { name: 'Testes de hipótese', done: false },
+      { name: 'Correlação e regressão', done: false },
+      { name: 'EDA — análise exploratória', done: false },
+      { name: 'Estatística para ML', done: false },
+    ],
+    notes: null,
+    ghLink: `https://github.com/Odiney-SP/portfolio-dados/tree/main/study-notes`,
+    linkLabel: 'study-notes/',
+  },
+  {
+    id: 'ml',
+    name: 'Machine Learning',
+    status: 'planned',
+    statusLabel: 'iniciando',
+    progress: 25,
+    topics: [
+      { name: 'Conceitos fundamentais', done: true },
+      { name: 'Scikit-learn basics', done: false },
+      { name: 'Regressão linear e logística', done: false },
+      { name: 'Árvores de decisão', done: false },
+      { name: 'Forecasting com Prophet', done: false },
+      { name: 'Avaliação de modelos', done: false },
+    ],
+    notes: null,
+    ghLink: `https://github.com/Odiney-SP/portfolio-dados/tree/main/study-notes`,
+    linkLabel: 'study-notes/',
+  },
+  {
+    id: 'engdados',
+    name: 'Engenharia de Dados',
+    status: 'planned',
+    statusLabel: 'planejado',
+    progress: 20,
+    topics: [
+      { name: 'ETL vs ELT conceitos', done: true },
+      { name: 'dbt fundamentos', done: false },
+      { name: 'Arquitetura analítica', done: false },
+      { name: 'Orquestração com Airflow', done: false },
+      { name: 'Data quality', done: false },
+    ],
+    notes: null,
+    ghLink: `https://github.com/Odiney-SP/portfolio-dados/tree/main/study-notes`,
+    linkLabel: 'study-notes/',
+  },
+];
+
+const resources = [
+  {
+    category: 'Repositórios de estudo',
+    items: [
+      { name: 'query-library/', desc: 'Queries SQL organizadas por tema', link: 'https://github.com/Odiney-SP/portfolio-dados/tree/main/query-library' },
+      { name: 'python-snippets/', desc: 'Snippets e scripts Python', link: 'https://github.com/Odiney-SP/portfolio-dados/tree/main/python-snippets' },
+      { name: 'dax-library/', desc: 'Medidas e padrões DAX', link: 'https://github.com/Odiney-SP/portfolio-dados/tree/main/dax-library' },
+      { name: 'cheat-sheets/', desc: 'Referências rápidas por stack', link: 'https://github.com/Odiney-SP/portfolio-dados/tree/main/cheat-sheets' },
+      { name: 'learning-logs/', desc: 'Diário de aprendizado', link: 'https://github.com/Odiney-SP/portfolio-dados/tree/main/learning-logs' },
+      { name: 'study-notes/', desc: 'Notas e resumos técnicos', link: 'https://github.com/Odiney-SP/portfolio-dados/tree/main/study-notes' },
+      { name: 'automation-recipes/', desc: 'Scripts e receitas de automação', link: 'https://github.com/Odiney-SP/portfolio-dados/tree/main/automation-recipes' },
+    ],
+  },
+];
+---
+
+<Base
+  title="Estudos — Odiney Souza"
+  description="Learning logs, notas técnicas, cheatsheets e progresso de estudos em SQL, Python, Power BI, ML e Engenharia de Dados."
+>
+  <section class="section">
+    <div class="container">
+      <a href={`${base}/`} class="back-link label">← Home</a>
+
+      <div class="page-header">
+        <p class="label" style="margin-bottom:.75rem; margin-top:1.5rem">estudos</p>
+        <h1>Aprendizado em progresso</h1>
+        <p class="page-desc">
+          Cada área tem um rastreamento do que já foi coberto e o que vem a seguir. O GitHub serve
+          como caderno — cada commit registra o que foi aprendido.
+        </p>
+      </div>
+
+      <!-- PROGRESSO GERAL -->
+      <div class="progress-overview card">
+        <p class="label" style="margin-bottom:1rem">visão geral do progresso</p>
+        <div class="progress-list">
+          {areas.map(a => (
+            <div class="prog-item">
+              <div class="prog-header">
+                <span class="prog-name">{a.name}</span>
+                <span class={`status ${a.status}`}>{a.statusLabel}</span>
+                <span class="label prog-pct">{a.progress}%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-bar-fill" style={`width:${a.progress}%`} />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <hr class="divider" style="margin-block:3rem" />
+
+      <!-- ÁREAS DETALHE -->
+      <div class="areas-grid">
+        {areas.map(a => (
+          <div class="area-card card" id={a.id}>
+            <div class="area-header">
+              <h2 class="area-name">{a.name}</h2>
+              <span class={`status ${a.status}`}>{a.statusLabel}</span>
+            </div>
+
+            <div class="progress-bar" style="margin-bottom:1rem">
+              <div class="progress-bar-fill" style={`width:${a.progress}%`} />
+            </div>
+
+            <div class="topics-list">
+              {a.topics.map(t => (
+                <div class={`topic-item ${t.done ? 'done' : ''}`}>
+                  <span class="topic-check">{t.done ? '✓' : '○'}</span>
+                  <span class="topic-name">{t.name}</span>
+                </div>
+              ))}
+            </div>
+
+            <div class="area-footer">
+              <a
+                href={a.ghLink}
+                target="_blank"
+                rel="noopener"
+                class="area-link label"
+              >
+                → {a.linkLabel}
+              </a>
+              {a.notes && (
+                <a
+                  href={`https://github.com/Odiney-SP/portfolio-dados/blob/main/${a.notes}`}
+                  target="_blank"
+                  rel="noopener"
+                  class="area-link label"
+                >
+                  → cheatsheet
+                </a>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <hr class="divider" style="margin-block:3rem" />
+
+      <!-- REPOSITÓRIOS -->
+      <div class="repos-section">
+        <p class="label" style="margin-bottom:1rem">repositórios de estudo</p>
+        <div class="repos-grid">
+          {resources[0].items.map(r => (
+            <a
+              href={r.link}
+              target="_blank"
+              rel="noopener"
+              class="repo-card card"
+            >
+              <span class="repo-name">{r.name}</span>
+              <span class="repo-desc">{r.desc}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- NOTA -->
+      <div class="note-block">
+        <p class="label" style="margin-bottom:.4rem">como estudo</p>
+        <p>
+          Prefiro aprender por problemas reais — aplico cada conceito em dados do trabalho ou em
+          datasets públicos e documento aqui. Uso Alura, Coursera, DataCamp e documentações
+          oficiais. Pratico com Kaggle e dados abertos do governo federal.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+.back-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color .15s;
+}
+.back-link:hover { color: var(--text); }
+
+.page-header { margin-bottom: 2rem; }
+
+.page-desc {
+  color: var(--text-muted);
+  max-width: 560px;
+  line-height: 1.75;
+  margin-top: .75rem;
+}
+
+/* Progress overview */
+.progress-overview { margin-bottom: .5rem; }
+
+.progress-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.prog-item {}
+
+.prog-header {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  margin-bottom: .35rem;
+  flex-wrap: wrap;
+}
+
+.prog-name {
+  font-size: .875rem;
+  font-weight: 500;
+  flex: 1;
+}
+
+.prog-pct { margin-left: auto; }
+
+/* Areas grid */
+.areas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+  margin-bottom: .5rem;
+}
+
+.area-card {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+
+.area-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5rem;
+  flex-wrap: wrap;
+}
+
+.area-name {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Topics */
+.topics-list {
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+  flex: 1;
+}
+
+.topic-item {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  font-size: .8rem;
+  color: var(--text-faint);
+}
+
+.topic-item.done { color: var(--text-muted); }
+
+.topic-check {
+  font-family: var(--font-mono);
+  font-size: .7rem;
+  color: var(--text-faint);
+  flex-shrink: 0;
+  width: 1rem;
+}
+
+.topic-item.done .topic-check { color: #4ade80; }
+
+.topic-name { line-height: 1.3; }
+
+.area-footer {
+  display: flex;
+  gap: 1rem;
+  padding-top: .75rem;
+  border-top: 1px solid var(--border);
+  margin-top: auto;
+}
+
+.area-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color .15s;
+  font-size: .7rem;
+}
+.area-link:hover { color: var(--accent); }
+
+/* Repos */
+.repos-section { margin-bottom: 2rem; }
+
+.repos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: .75rem;
+}
+
+.repo-card {
+  text-decoration: none;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+  padding: 1rem 1.25rem;
+}
+
+.repo-name {
+  font-family: var(--font-mono);
+  font-size: .8rem;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.repo-desc {
+  font-size: .78rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* Note */
+.note-block {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  max-width: 600px;
+}
+
+.note-block p:last-child {
+  font-size: .875rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+</style>

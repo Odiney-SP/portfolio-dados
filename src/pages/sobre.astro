@@ -1,0 +1,331 @@
+---
+import Base from '@/layouts/Base.astro';
+
+const base = '/portfolio-dados';
+
+const timeline = [
+  {
+    period: '2026 — agora',
+    role: 'Residência em Engenharia de Software',
+    org: 'UFG — ResidênciaSI-2026-01',
+    desc: 'Desenvolvimento full-stack, APIs REST, banco de dados relacional, práticas de engenharia de software. Em paralelo: avanço em estatística aplicada, ML e IA.',
+    tags: ['Python', 'FastAPI', 'SQL', 'React', 'APIs'],
+  },
+  {
+    period: '2025–2026',
+    role: 'Aprofundamento em Analytics',
+    org: 'Autônomo · Alura · DataCamp · Coursera',
+    desc: 'SQL avançado (CTEs, window functions), Python com Pandas, Power BI com modelagem e DAX. Início em estatística descritiva e automação com Power Automate.',
+    tags: ['SQL', 'Python', 'Power BI', 'DAX', 'Pandas'],
+  },
+  {
+    period: '2024–2025',
+    role: 'Primeiros estudos em dados',
+    org: 'Autônomo',
+    desc: 'Excel avançado (Power Query, tabelas dinâmicas, fórmulas), SQL básico-intermediário, Power BI funcional. Python básico: variáveis, loops, leitura de arquivos.',
+    tags: ['Excel', 'SQL', 'Power BI', 'Python'],
+  },
+  {
+    period: 'anos anteriores',
+    role: 'Supervisor de Atendimento / Coordenador de Processos',
+    org: 'Secretaria da Economia do Estado de Goiás',
+    desc: 'Cobrança administrativa pública. Monitoramento de produtividade por agente e setor, SLA, metas, inadimplência, relatórios gerenciais e diagnóstico de gargalos operacionais.',
+    tags: ['Indicadores', 'SLA', 'Cobrança', 'Gestão', 'Excel'],
+  },
+];
+
+const skills = [
+  { area: 'Análise quantitativa', items: ['Indicadores de produtividade', 'Monitoramento de SLA', 'Meta vs realizado', 'Variância e tendência'] },
+  { area: 'Gestão operacional', items: ['Coordenação de equipes', 'Padronização de processos', 'Diagnóstico de gargalos', 'Relatórios para alta gestão'] },
+  { area: 'Dados', items: ['SQL queries e análise', 'Power BI dashboards', 'Python / Pandas', 'Modelagem de dados'] },
+  { area: 'Em avanço', items: ['Estatística aplicada', 'Machine Learning', 'Engenharia de Dados', 'IA aplicada a operações'] },
+];
+---
+
+<Base
+  title="Sobre — Odiney Souza"
+  description="Experiência profissional, trajetória em analytics e jornada de aprendizado em dados."
+>
+  <section class="section">
+    <div class="container">
+      <!-- HEADER -->
+      <div class="page-header">
+        <a href={`${base}/`} class="back-link label">← Home</a>
+        <p class="label" style="margin-bottom:.75rem; margin-top:1.5rem">sobre</p>
+        <h1>Odiney Souza</h1>
+        <p class="page-subtitle">
+          Operational Analytics · Data · IA Aplicada · Goiânia, GO
+        </p>
+      </div>
+
+      <!-- BIO -->
+      <div class="bio-block prose">
+        <p>
+          Trabalho com cobrança administrativa pública há anos — monitorar volume de atendimentos,
+          acompanhar metas, identificar por que determinado setor está abaixo da produtividade
+          esperada e apresentar tudo isso de forma que a gestão consiga tomar decisão.
+        </p>
+        <p>
+          Durante muito tempo fiz esse trabalho sem ferramentas adequadas: Excel limitado, relatórios
+          manuais que levavam horas, análises que dependiam de memória em vez de dados. Foi exatamente
+          isso que me levou a estudar analytics de forma mais séria.
+        </p>
+        <p>
+          A vantagem de vir de uma operação é que já conheço as perguntas que precisam ser respondidas.
+          Não preciso aprender o problema — preciso aprender as ferramentas para resolvê-lo melhor.
+          Isso orienta o que estudo.
+        </p>
+      </div>
+
+      <hr class="divider" style="margin-block:3rem" />
+
+      <!-- O QUE O DIA A DIA ENSINOU -->
+      <div class="section-block">
+        <p class="label" style="margin-bottom:1rem">o que a operação ensina sobre dados</p>
+        <div class="questions-grid">
+          {[
+            'Por que a produtividade caiu nessa semana?',
+            'Qual agente está fora do SLA e desde quando?',
+            'A meta está factível dado o ritmo atual?',
+            'Onde está o gargalo que está freando o resultado?',
+          ].map(q => (
+            <div class="question-card card">
+              <span class="q-mark">?</span>
+              <p>{q}</p>
+            </div>
+          ))}
+        </div>
+        <p class="context-note">
+          Responder essas perguntas com precisão exige dados organizados, consultas rápidas e
+          visualizações que mostram a situação sem ambiguidade. Foi tentando resolver esses problemas
+          reais que passei a estudar SQL, Power BI e Python com profundidade.
+        </p>
+      </div>
+
+      <hr class="divider" style="margin-block:3rem" />
+
+      <!-- TIMELINE -->
+      <div class="section-block">
+        <p class="label" style="margin-bottom:1.5rem">trajetória</p>
+        <div class="timeline">
+          {timeline.map((item, i) => (
+            <div class="timeline-item">
+              <div class="timeline-dot" />
+              {i < timeline.length - 1 && <div class="timeline-line" />}
+              <div class="timeline-content card">
+                <span class="label timeline-period">{item.period}</span>
+                <h3 class="timeline-role">{item.role}</h3>
+                <span class="timeline-org">{item.org}</span>
+                <p class="timeline-desc">{item.desc}</p>
+                <div class="timeline-tags">
+                  {item.tags.map(t => <span class="badge">{t}</span>)}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <hr class="divider" style="margin-block:3rem" />
+
+      <!-- SKILLS GRID -->
+      <div class="section-block">
+        <p class="label" style="margin-bottom:1.5rem">competências</p>
+        <div class="grid-2">
+          {skills.map(s => (
+            <div class="card skill-card">
+              <p class="label" style="margin-bottom:.75rem">{s.area}</p>
+              <ul class="skill-list">
+                {s.items.map(item => <li>{item}</li>)}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <hr class="divider" style="margin-block:3rem" />
+
+      <!-- JORNADA APRENDIZADO -->
+      <div class="section-block">
+        <p class="label" style="margin-bottom:1rem">como estudo</p>
+        <div class="learn-block prose">
+          <p>
+            Prefiro aprender por problemas reais. Pego um conceito, aplico em dados que conheço do
+            trabalho ou em datasets públicos, e documento aqui. Não funciona bem pra mim estudar de
+            forma completamente abstrata.
+          </p>
+          <p>
+            Uso Alura, Coursera, DataCamp e documentações oficiais. Pratico com Kaggle, dados do
+            governo federal e bases da SEFAZ-GO quando disponíveis. O GitHub serve como caderno —
+            cada commit registra o que foi aprendido.
+          </p>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="cta-row">
+        <a href={`${base}/projetos`} class="btn btn-primary">Ver projetos</a>
+        <a href={`${base}/stacks`} class="btn btn-ghost">Stacks técnicas</a>
+        <a href="mailto:odineygaviao@gmail.com" class="btn btn-ghost">Email</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+.page-header { margin-bottom: 2.5rem; }
+
+.back-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color .15s;
+}
+.back-link:hover { color: var(--text); }
+
+.page-subtitle {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin-top: .5rem;
+  font-family: var(--font-mono);
+  font-size: .875rem;
+}
+
+.bio-block { margin-bottom: .5rem; }
+
+.section-block { margin-bottom: .5rem; }
+
+.questions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: .75rem;
+  margin-bottom: 1.5rem;
+}
+
+.question-card {
+  display: flex;
+  align-items: flex-start;
+  gap: .75rem;
+  padding: 1rem 1.25rem;
+}
+
+.q-mark {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.question-card p {
+  font-size: .875rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.context-note {
+  font-size: .9rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  max-width: 640px;
+}
+
+/* Timeline */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -1.5rem;
+  top: 1rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--bg);
+  box-shadow: 0 0 0 2px var(--accent);
+}
+
+.timeline-line {
+  position: absolute;
+  left: -1.18rem;
+  top: 1.6rem;
+  bottom: 0;
+  width: 1px;
+  background: var(--border);
+}
+
+.timeline-content { padding: 1.25rem 1.5rem; }
+
+.timeline-period {
+  display: block;
+  margin-bottom: .35rem;
+}
+
+.timeline-role {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: .25rem;
+}
+
+.timeline-org {
+  font-size: .8rem;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  display: block;
+  margin-bottom: .75rem;
+}
+
+.timeline-desc {
+  font-size: .875rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: .75rem;
+}
+
+.timeline-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem;
+}
+
+/* Skills */
+.skill-card { }
+.skill-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+}
+.skill-list li {
+  font-size: .875rem;
+  color: var(--text-muted);
+  padding-left: .75rem;
+  position: relative;
+}
+.skill-list li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: var(--text-faint);
+}
+
+.learn-block { }
+
+.cta-row {
+  display: flex;
+  gap: .75rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+</style>

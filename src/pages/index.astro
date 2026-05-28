@@ -1,0 +1,297 @@
+---
+import Base from '@/layouts/Base.astro';
+
+const base = '/portfolio-dados';
+
+const quickLinks = [
+  { href: `${base}/projetos`, label: 'Projetos', desc: 'Análises e dashboards em construção', icon: '◈' },
+  { href: `${base}/stacks`, label: 'Stacks', desc: 'SQL · Python · Power BI · ML · IA', icon: '◉' },
+  { href: `${base}/estudos`, label: 'Estudos', desc: 'Learning logs, notas e snippets', icon: '◎' },
+  { href: `${base}/biblioteca`, label: 'Biblioteca', desc: 'Cursos, livros e certificações', icon: '◇' },
+  { href: `${base}/sobre`, label: 'Sobre', desc: 'Experiência, trajetória e contexto', icon: '◯' },
+  { href: 'https://github.com/Odiney-SP', label: 'GitHub', desc: 'Commits, repos e código', icon: '⌥', external: true },
+];
+
+const highlights = [
+  { label: 'Analytics', detail: 'Indicadores, SLA, metas e produtividade operacional' },
+  { label: 'SQL', detail: 'Queries, CTEs, window functions, análise de dados' },
+  { label: 'Python', detail: 'Pandas, automação, ETL, visualização' },
+  { label: 'Power BI', detail: 'Dashboards, DAX, modelagem, relatórios gerenciais' },
+];
+---
+
+<Base
+  title="Odiney Souza — Operational Analytics & Data"
+  description="Operational Analytics, BI, Automação e IA Aplicada. Estudos, projetos e experiência no setor público."
+>
+  <!-- HERO ───────────────────────────── -->
+  <section class="hero section">
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-meta">
+          <span class="status">disponível para colaborar</span>
+          <span class="hero-location label">Goiânia · GO</span>
+        </div>
+
+        <h1 class="hero-name">
+          Odiney<br />
+          <span class="gradient-text">Souza</span>
+        </h1>
+
+        <p class="hero-role label">Operational Analytics · Data · IA Aplicada</p>
+
+        <p class="hero-desc">
+          Analista com experiência real em operações de cobrança pública. Transformo dados operacionais em
+          inteligência que gestores conseguem usar para tomar decisão. Estudo SQL, Python, Power BI,
+          estatística e ML com foco em problemas reais do setor público.
+        </p>
+
+        <div class="hero-actions">
+          <a href={`${base}/projetos`} class="btn btn-primary">Ver projetos</a>
+          <a href={`${base}/sobre`} class="btn btn-ghost">Minha trajetória</a>
+          <a
+            href="https://github.com/Odiney-SP"
+            target="_blank"
+            rel="noopener"
+            class="btn btn-ghost"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0">
+              <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+            </svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-tags">
+        {highlights.map(h => (
+          <div class="highlight-card card">
+            <span class="highlight-label label">{h.label}</span>
+            <p class="highlight-detail">{h.detail}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider container" />
+
+  <!-- QUICK LINKS ────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <p class="label" style="margin-bottom:1.5rem">Navegar pelo portfolio</p>
+      <div class="quick-grid">
+        {quickLinks.map(l => (
+          <a
+            href={l.href}
+            class="quick-card card"
+            target={l.external ? '_blank' : undefined}
+            rel={l.external ? 'noopener' : undefined}
+          >
+            <span class="quick-icon">{l.icon}</span>
+            <div>
+              <span class="quick-label">{l.label}</span>
+              {l.external && <span class="ext-badge label">↗</span>}
+              <p class="quick-desc">{l.desc}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider container" />
+
+  <!-- CONTEXTO ───────────────────────── -->
+  <section class="section">
+    <div class="container context-split">
+      <div>
+        <p class="label" style="margin-bottom:.75rem">contexto</p>
+        <h2 style="margin-bottom:1rem">De operações a dados</h2>
+        <p class="context-text">
+          Comecei pela gestão operacional — monitoramento de metas, SLA, produtividade, cobrança.
+          A limitação das ferramentas disponíveis foi o que me empurrou para analytics. Hoje estudo
+          dados com o contexto de quem já viu o problema de dentro.
+        </p>
+        <p class="context-text">
+          Em 2026, entrei na Residência em Engenharia de Software da UFG, o que acelerou contato com
+          APIs, banco de dados relacional, práticas de engenharia e desenvolvimento full-stack.
+        </p>
+        <a href={`${base}/sobre`} class="btn btn-ghost" style="margin-top:1.5rem">
+          Ver trajetória completa →
+        </a>
+      </div>
+
+      <div class="stack-preview">
+        <p class="label" style="margin-bottom:.75rem">stack em estudo</p>
+        <div class="stack-list">
+          {[
+            { name: 'SQL', level: 65 },
+            { name: 'Python · Pandas', level: 45 },
+            { name: 'Power BI · DAX', level: 55 },
+            { name: 'Estatística', level: 40 },
+            { name: 'Machine Learning', level: 25 },
+            { name: 'Engenharia de Dados', level: 20 },
+          ].map(s => (
+            <div class="stack-item">
+              <div class="stack-header">
+                <span class="stack-name">{s.name}</span>
+                <span class="label">{s.level}%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-bar-fill" style={`width:${s.level}%`} />
+              </div>
+            </div>
+          ))}
+        </div>
+        <a href={`${base}/stacks`} class="btn btn-ghost" style="margin-top:1rem;font-size:.8rem">
+          Ver detalhes das stacks →
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+/* HERO */
+.hero-inner {
+  max-width: 680px;
+  margin-bottom: 3rem;
+}
+
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.hero-location { margin-left: auto; }
+
+.hero-name {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 600;
+  letter-spacing: -.04em;
+  line-height: 1.05;
+  margin-bottom: 1rem;
+}
+
+.hero-role {
+  margin-bottom: 1.25rem;
+}
+
+.hero-desc {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  max-width: 560px;
+  margin-bottom: 2rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: .75rem;
+  flex-wrap: wrap;
+}
+
+.hero-tags {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: .75rem;
+}
+
+.highlight-card {
+  padding: 1rem 1.25rem;
+}
+
+.highlight-label {
+  display: block;
+  margin-bottom: .25rem;
+}
+
+.highlight-detail {
+  font-size: .875rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* QUICK LINKS */
+.quick-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: .75rem;
+}
+
+.quick-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.quick-icon {
+  font-size: 1.1rem;
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-top: .15rem;
+}
+
+.quick-label {
+  font-weight: 500;
+  font-size: .9rem;
+}
+
+.ext-badge {
+  margin-left: .35rem;
+  font-size: .65rem;
+  color: var(--text-muted);
+}
+
+.quick-desc {
+  font-size: .8rem;
+  color: var(--text-muted);
+  margin-top: .2rem;
+  line-height: 1.4;
+}
+
+/* CONTEXT */
+.context-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.context-text {
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+
+.stack-list {
+  display: flex;
+  flex-direction: column;
+  gap: .875rem;
+}
+
+.stack-item {}
+
+.stack-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: .35rem;
+}
+
+.stack-name {
+  font-size: .875rem;
+  font-weight: 500;
+}
+
+@media (max-width: 800px) {
+  .context-split { grid-template-columns: 1fr; gap: 2.5rem; }
+  .hero-location { margin-left: 0; }
+}
+</style>
