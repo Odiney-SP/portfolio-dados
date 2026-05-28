@@ -1,86 +1,74 @@
-# Odiney Souza — Data | Analytics | Automação | IA Aplicada
+<div align="center">
 
-> Transformando operações, dados e sistemas em inteligência acionável.
+# Odiney Souza
 
-## Sobre mim
+### Data Analytics · Business Intelligence · Automação · IA Aplicada
 
-Profissional com experiência em **gestão operacional, cobrança pública, indicadores, processos e análise de dados**, em transição e aprofundamento contínuo para uma atuação avançada em:
-
-- Data Analytics
-- Business Intelligence
-- Automação de Processos
-- Modelagem Preditiva
-- Inteligência Artificial aplicada à gestão
-- Tomada de decisão orientada por dados
-
-Minha trajetória conecta **gestão operacional + análise quantitativa + tecnologia + inteligência estratégica**.
-
-Tenho interesse especial em como dados podem melhorar operações complexas, performance organizacional, previsão de comportamento, produtividade, automação decisória e sistemas de apoio gerencial.
+*Transformando operações, dados e sistemas em inteligência acionável.*
 
 ---
 
-## Stack Tecnológica
+[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](STACKS/python/)
+[![SQL](https://img.shields.io/badge/SQL-4479A1?style=for-the-badge&logo=postgresql&logoColor=white)](STACKS/sql/)
+[![Power BI](https://img.shields.io/badge/Power%20BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)](STACKS/power-bi/)
+[![Excel](https://img.shields.io/badge/Excel-217346?style=for-the-badge&logo=microsoftexcel&logoColor=white)](STACKS/excel/)
+[![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)](STACKS/python/pandas/)
+[![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)](./)
 
-### Dados & Analytics
-`SQL` `Python` `Pandas` `NumPy` `Estatística Aplicada` `Machine Learning` `Forecasting`
+[![GitHub followers](https://img.shields.io/github/followers/Odiney-SP?style=social)](https://github.com/Odiney-SP)
+[![Repo stars](https://img.shields.io/github/stars/Odiney-SP/portfolio-dados?style=social)](https://github.com/Odiney-SP/portfolio-dados)
 
-### BI & Visualização
-`Power BI` `DAX` `Power Query` `Dashboards Executivos` `Storytelling com Dados`
-
-### Automação & Integrações
-`Power Automate` `APIs REST` `ETL` `Python Automation` `n8n`
-
-### Engenharia & Sistemas
-`PostgreSQL` `MySQL` `Modelagem de Dados` `Git / GitHub` `Desenvolvimento Full Stack (em formação)`
-
-### IA Aplicada
-`LLMs` `Prompt Engineering` `Analytics Assistants` `Insights Automatizados` `AI for Operations`
+</div>
 
 ---
 
-## Áreas de Interesse
+## Sobre
 
-📊 Analytics Estratégico  
-📈 Forecasting e Modelagem Preditiva  
-🤖 IA aplicada à gestão  
-⚙️ Automação de processos  
-📞 Analytics operacional (Call Center / Cobrança / Serviços)  
-🧠 Tomada de decisão baseada em dados  
-🏛️ Dados aplicados ao setor público  
+Profissional com trajetória em **gestão operacional e cobrança pública** na Secretaria da Economia do Estado de Goiás, em transição ativa para **Data Analytics e Business Intelligence**. Minha experiência conecta gestão quantitativa, inteligência operacional e análise de desempenho — áreas que são, na essência, problemas de dados.
+
+Hoje estou construindo competências técnicas sólidas em análise de dados, automação, modelagem preditiva e IA aplicada, com foco em soluções que impactam operações reais.
+
+> Experiência operacional + rigor analítico + visão estratégica orientada a dados.
 
 ---
 
-## Projetos
+## Stack
 
-### Dashboard Executivo Operacional
-Inteligência operacional com foco em acompanhamento gerencial.
+<table>
+<tr>
+<td valign="top" width="33%">
 
-**Indicadores:** produtividade · SLA · performance · tempo médio · eficiência operacional
+**Dados & Analytics**
+- SQL (PostgreSQL, MySQL)
+- Python (Pandas, NumPy)
+- Estatística Aplicada
+- Machine Learning
+- Forecasting
 
-**Stack:** `Power BI` `SQL` `DAX`
+</td>
+<td valign="top" width="33%">
 
----
+**BI & Visualização**
+- Power BI + DAX
+- Power Query (M)
+- Excel Avançado + Power Pivot
+- Dashboards Executivos
+- Storytelling com Dados
 
-### Modelo Preditivo de Operações
-Modelos para previsão de comportamento operacional.
+</td>
+<td valign="top" width="33%">
 
-**Aplicações:** volume de demanda · produtividade · inadimplência · tendências operacionais
+**Automação & IA**
+- Power Automate
+- Python Automation
+- APIs REST + ETL
+- n8n
+- LLMs + Prompt Engineering
+- Analytics Assistants
 
-**Stack:** `Python` `Pandas` `Scikit-Learn`
-
----
-
-### Automação de Relatórios
-Pipeline para reduzir trabalho manual e automatizar a consolidação de dados.
-
-**Funcionalidades:** ingestão automática · limpeza · transformação · geração de relatórios
-
-**Stack:** `Python` `APIs` `ETL`
-
----
-
-### Analytics + IA Aplicada
-Exploração de modelos generativos aplicados a sumarização operacional, insights automáticos, copilotos gerenciais e análise textual.
+</td>
+</tr>
+</table>
 
 ---
 
@@ -88,38 +76,111 @@ Exploração de modelos generativos aplicados a sumarização operacional, insig
 
 ```
 portfolio-dados/
-├── python/        # Scripts e notebooks de análise em Python
-├── sql/           # Queries, modelagem e estudos de caso SQL
-├── power-bi/      # Arquivos .pbix e documentação de dashboards
-├── excel/         # Planilhas e modelos Excel / Power Query
-└── projetos/      # Projetos completos end-to-end
+│
+├── ABOUT-ME/                    # Perfil, trajetória e jornada de aprendizado
+│   ├── experiencia-profissional.md
+│   ├── jornada-aprendizado.md
+│   ├── certificacoes.md
+│   ├── cursos.md
+│   └── bibliografia.md
+│
+├── STACKS/                      # Estudos técnicos por stack
+│   ├── sql/
+│   ├── python/
+│   ├── power-bi/
+│   ├── excel/
+│   ├── estatistica/
+│   ├── automacao/
+│   └── ia-aplicada/
+│
+├── PROJETOS/                    # Projetos práticos end-to-end
+│   ├── dashboard-operacional/
+│   ├── previsao-operacoes/
+│   ├── automacao-relatorios/
+│   ├── analytics-setor-publico/
+│   ├── copiloto-gerencial/
+│   └── end-to-end/
+│
+├── study-notes/                 # Anotações de estudo e conceitos
+├── cheat-sheets/                # Referências rápidas por tecnologia
+├── query-library/               # Biblioteca de queries SQL reutilizáveis
+├── dax-library/                 # Biblioteca de medidas DAX
+├── python-snippets/             # Snippets Python prontos para uso
+├── automation-recipes/          # Receitas de automação documentadas
+├── cursos/                      # Registro de cursos por área
+│
+├── ROADMAP.md                   # Roadmap de evolução técnica
+├── CHANGELOG.md                 # Histórico de evolução do portfólio
+└── CONTRIBUTING.md              # Guia de organização e contribuição
 ```
 
 ---
 
-## Jornada de Aprendizado
+## Áreas de Foco
 
-Aprofundando estudos em: SQL Avançado · Estatística Aplicada · Machine Learning · Forecasting · Engenharia de Dados · IA Generativa · Arquitetura Analítica
-
-**Referências:**
-- Data Science para Negócios
-- Storytelling com Dados — Cole Nussbaumer Knaflic
-- Python para Análise de Dados — Wes McKinney
-- Estatística Básica — Bussab & Morettin
-- Hands-On Machine Learning — Aurélien Géron
+| Área | Descrição |
+|---|---|
+| **Analytics Operacional** | Indicadores, SLA, produtividade, acompanhamento gerencial |
+| **Business Intelligence** | Dashboards, modelagem dimensional, KPIs executivos |
+| **Automação** | Redução de trabalho manual, pipelines ETL, relatórios automáticos |
+| **Modelagem Preditiva** | Forecasting de demanda, comportamento operacional, tendências |
+| **IA Aplicada** | Copilotos gerenciais, sumarização, insights automáticos |
+| **Dados no Setor Público** | Analytics aplicado à gestão pública e cobrança |
 
 ---
 
-## Filosofia de Trabalho
+## Projetos em Desenvolvimento
 
-Dados não são apenas números — são instrumentos para compreender sistemas, identificar padrões, antecipar cenários e apoiar decisões melhores.
+| Projeto | Stack | Status |
+|---|---|---|
+| [Dashboard Executivo Operacional](PROJETOS/dashboard-operacional/) | Power BI · SQL · DAX | Em construção |
+| [Previsão de Operações](PROJETOS/previsao-operacoes/) | Python · Scikit-learn · Forecasting | Planejado |
+| [Automação de Relatórios](PROJETOS/automacao-relatorios/) | Python · APIs · ETL | Planejado |
+| [Analytics — Setor Público](PROJETOS/analytics-setor-publico/) | SQL · Power BI · Excel | Planejado |
+| [Copiloto Gerencial com IA](PROJETOS/copiloto-gerencial/) | LLMs · Python · APIs | Planejado |
 
-Meu foco é construir soluções que unam **rigor analítico + aplicabilidade operacional + impacto real**.
+---
+
+## GitHub Stats
+
+<div align="center">
+
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=Odiney-SP&show_icons=true&theme=dark&hide_border=true&bg_color=0d1117&title_color=58a6ff&icon_color=58a6ff)
+
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Odiney-SP&layout=compact&theme=dark&hide_border=true&bg_color=0d1117&title_color=58a6ff)
+
+</div>
+
+---
+
+## Roadmap de Aprendizado
+
+```
+2026 ──────────────────────────────────────────────────────────────────────►
+
+Q1-Q2                    Q2-Q3                    Q3-Q4
+──────────               ──────────               ──────────
+✅ SQL Fundamentos        🔄 Estatística Aplicada   ⬜ Machine Learning
+✅ Python + Pandas        🔄 Power BI Avançado      ⬜ Forecasting
+✅ Power BI               🔄 Python Automação       ⬜ Engenharia de Dados
+✅ Excel Avançado         🔄 ETL / APIs             ⬜ IA Aplicada
+🔄 SQL Avançado           ⬜ Machine Learning        ⬜ MLOps básico
+```
 
 ---
 
 ## Contato
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com)
-[![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)](https://github.com/Odiney-SP)
-[![Email](https://img.shields.io/badge/Email-D14836?style=flat&logo=gmail&logoColor=white)](mailto:odineygaviao@gmail.com)
+<div align="center">
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/odiney-souza)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Odiney-SP)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:odineygaviao@gmail.com)
+
+</div>
+
+---
+
+<div align="center">
+<sub>Portfólio em construção contínua — cada commit é um passo na jornada.</sub>
+</div>
