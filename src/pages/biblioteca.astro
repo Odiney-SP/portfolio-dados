@@ -55,10 +55,24 @@ const platforms = [
   { name: 'Kaggle Learn', focus: 'Python · ML · SQL · Visualização', status: 'active' },
   { name: 'Microsoft Learn', focus: 'Power BI · Azure · SQL Server', status: 'active' },
   { name: 'UFG — ResidênciaSI-2026-01', focus: 'React · FastAPI · PostgreSQL · DevOps · Git', status: 'active' },
+  { name: 'Escola de Governo — GO', focus: 'Licitações · Contratações Públicas · Lei 14.133', status: 'active' },
 ];
 
 const certs = [
   { name: 'Residência em Engenharia de Software', org: 'UFG', year: '2026', status: 'in_progress', area: 'Engenharia de Software' },
+  { name: 'Equipe de Planejamento de Contratação', org: 'Escola de Governo — GO', year: '2026', status: 'done', area: 'Gestão Pública · Lei 14.133', certUrl: '/portfolio-dados/publicacoes/certificado-equipe-planejamento-contratacao.pdf' },
+];
+
+const publicacoes = [
+  {
+    title: 'Equipe de Planejamento da Contratação',
+    desc: 'Como o planejamento responsável protege o dinheiro público e transforma a forma como o Estado compra. Escrito a partir do curso da Escola de Governo do Estado de Goiás — uma síntese prática sobre a fase preparatória da contratação pública sob a Lei 14.133/2021.',
+    tags: ['Gestão Pública', 'Lei 14.133', 'Contratações', 'Planejamento'],
+    type: 'Ebook',
+    year: '2026',
+    pages: 17,
+    pdfUrl: '/portfolio-dados/publicacoes/ebook-equipe-planejamento-contratacao.pdf',
+  },
 ];
 ---
 
@@ -78,6 +92,31 @@ const certs = [
           que o percurso avança.
         </p>
       </div>
+
+      <!-- PUBLICACOES -->
+      <div class="sub-section">
+        <p class="label section-label">publicações</p>
+        <div class="pub-list">
+          {publicacoes.map(p => (
+            <div class="pub-card card">
+              <div class="pub-header">
+                <div class="pub-meta">
+                  <span class="badge">{p.type}</span>
+                  <span class="pub-pages label">{p.pages} páginas · {p.year}</span>
+                </div>
+                <a href={p.pdfUrl} target="_blank" rel="noopener" class="pub-download">↓ PDF</a>
+              </div>
+              <h3 class="pub-title">{p.title}</h3>
+              <p class="pub-desc">{p.desc}</p>
+              <div class="pub-tags">
+                {p.tags.map(t => <span class="badge">{t}</span>)}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <hr class="divider" style="margin-block:2.5rem" />
 
       <!-- LEITURAS -->
       <div class="sub-section">
@@ -151,9 +190,14 @@ const certs = [
                   <h3 class="cert-name">{c.name}</h3>
                   <span class="cert-org">{c.org} · {c.year}</span>
                 </div>
-                <span class={`status ${c.status === 'in_progress' ? 'building' : ''}`}>
-                  {c.status === 'in_progress' ? 'em andamento' : 'concluído'}
-                </span>
+                <div class="cert-actions">
+                  <span class={`status ${c.status === 'in_progress' ? 'building' : ''}`}>
+                    {c.status === 'in_progress' ? 'em andamento' : 'concluído'}
+                  </span>
+                  {c.certUrl && (
+                    <a href={c.certUrl} target="_blank" rel="noopener" class="cert-link label">↓ certificado</a>
+                  )}
+                </div>
               </div>
               <span class="badge">{c.area}</span>
             </div>
@@ -344,6 +388,90 @@ const certs = [
   color: var(--text-muted);
   line-height: 1.6;
 }
+
+/* Publicações */
+.pub-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 760px;
+}
+
+.pub-card {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+
+.pub-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.pub-meta {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+}
+
+.pub-pages {
+  color: var(--text-faint);
+}
+
+.pub-download {
+  font-size: .78rem;
+  font-family: var(--font-mono);
+  color: var(--accent);
+  text-decoration: none;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  padding: .2rem .6rem;
+  transition: background .15s, color .15s;
+  white-space: nowrap;
+}
+
+.pub-download:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.pub-title {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.pub-desc {
+  font-size: .875rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.pub-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem;
+}
+
+/* Cert actions */
+.cert-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: .35rem;
+}
+
+.cert-link {
+  font-size: .75rem;
+  color: var(--accent);
+  text-decoration: none;
+  opacity: .8;
+  transition: opacity .15s;
+}
+
+.cert-link:hover { opacity: 1; }
 
 .cta-row {
   display: flex;
