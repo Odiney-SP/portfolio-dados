@@ -1,0 +1,142 @@
+#!/data/data/com.termux/files/usr/bin/bash
+G='\e[0;32m'
+Y='\e[0;33m'
+R='\e[0;31m'
+C='\e[1;36m'
+W='\e[1;37m'
+D='\e[2;37m'
+BG='\e[1;32m'
+BY='\e[1;33m'
+BR='\e[1;31m'
+X='\e[0m'
+
+bar(){
+  local v=$1 s=${2:-20} f=$((v*s/100)) e=$((s-v*s/100)) b=""
+  for i in $(seq 1 $f); do b="${b}#"; done
+  for i in $(seq 1 $e); do b="${b}."; done
+  echo -n "$b"
+}
+
+cor(){
+  local v=$1 g=$2 w=$3
+  [ "$v" -ge "$g" ] 2>/dev/null && echo -n "$G" || { [ "$v" -ge "$w" ] 2>/dev/null && echo -n "$Y" || echo -n "$R"; }
+}
+
+nota(){
+  local v=$1 g=$2 w=$3
+  [ "$v" -ge "$g" ] 2>/dev/null && echo -n "OTIMO" || { [ "$v" -ge "$w" ] 2>/dev/null && echo -n "BOM" || echo -n "ATENCAO"; }
+}
+
+linha_h(){ echo -e "${D}|-----------------------------------------------------|${X}"; }
+linha_t(){ echo -e "${D}+=====================================================+${X}"; }
+
+clear
+
+linha_t
+printf "${C}|${W}    REALME C55  --  MONITOR DE SAUDE               ${C}|\n${X}"
+printf "${D}|    %-48s|\n${X}" "$(date '+%d/%m/%Y   %H:%M:%S')"
+linha_t
+echo ""
+
+echo -e "  ${D}Coletando dados...${X}"
+BAT=$(termux-battery-status 2>/dev/null | tr -d ' ')
+WIFI=$(termux-wifi-connectioninfo 2>/dev/null | tr -d ' ')
+
+NIV=$(echo $BAT | grep -o '"percentage":[0-9]*' | grep -o '[0-9]*')
+TMP=$(echo $BAT | grep -o '"temperature":[0-9.]*' | grep -o '[0-9.]*' | cut -d. -f1)
+SAU=$(echo $BAT | grep -o '"health":"[^"]*"' | sed 's/.*"health":"//;s/".*//')
+PLG=$(echo $BAT | grep -o '"plugged":"[^"]*"' | sed 's/.*"plugged":"//;s/".*//')
+[ "$PLG" != "UNPLUGGED" ] && PT="Sim" || PT="Nao"
+
+RAM_T=$(grep MemTotal /proc/meminfo | awk '{print int($2/1024)}')
+RAM_D=$(grep MemAvailable /proc/meminfo | awk '{print int($2/1024)}')
+RAM_U=$((RAM_T - RAM_D))
+RAM_P=$((RAM_U * 100 / RAM_T))
+
+CPU_F=$(cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq 2>/dev/null || echo 0)
+CPU_M=$(cat /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq 2>/dev/null || echo 1)
+CPU_Z=$((CPU_F / 1000))
+CPU_P=$((CPU_F * 100 / CPU_M))
+
+STR=$(df -h /sdcard 2>/dev/null | tail -1)
+ST=$(echo $STR | awk '{print $2}')
+SL=$(echo $STR | awk '{print $4}')
+SP=$(echo $STR | awk '{print $5}' | tr -d '%')
+
+RSS=$(echo $WIFI | grep -o '"rssi":-[0-9]*' | grep -o -- '-[0-9]*')
+SSD=$(echo $WIFI | grep -o '"ssid":"[^"]*"' | sed 's/.*"ssid":"//;s/".*//')
+SPD=$(echo $WIFI | grep -o '"link_speed_mbps":[0-9]*' | grep -o '[0-9]*$')
+
+clear
+
+linha_t
+printf "${C}|${W}    REALME C55  --  MONITOR DE SAUDE               ${C}|\n${X}"
+printf "${D}|    %-48s|\n${X}" "$(date '+%d/%m/%Y   %H:%M:%S')"
+linha_t
+echo ""
+
+# --- BATERIA ---
+BC=$(cor ${NIV:-0} 50 20)
+echo -e "  ${W}[*] BATERIA${X}"
+linha_h
+printf "  ${D}|${X}  %-14s  ${BC}$(bar ${NIV:-0})${X}  ${BC}%3s%%  $(nota ${NIV:-0} 50 20)${X}  ${D}|\n${X}" "Nivel" "${NIV:-?}"
+printf "  ${D}|${X}  %-14s  ${G}%-34s${D}|\n${X}" "Saude" "${SAU:-GOOD}"
+printf "  ${D}|${X}  %-14s  ${W}%-34s${D}|\n${X}" "Temperatura" "${TMP:-?} C"
+printf "  ${D}|${X}  %-14s  ${W}%-34s${D}|\n${X}" "Carregando" "$PT"
+linha_h
+echo ""
+
+# --- DESEMPENHO ---
+INV=$((100 - RAM_P))
+RC=$(cor $INV 40 20)
+echo -e "  ${W}[>] DESEMPENHO${X}"
+linha_h
+printf "  ${D}|${X}  %-14s  $(cor $INV 40 20)$(bar $RAM_P)${X}  ${RC}%3s%%  $(nota $INV 40 20)${X}  ${D}|\n${X}" "RAM usada" "$RAM_P"
+printf "  ${D}|${X}  %-14s  ${G}%-34s${D}|\n${X}" "RAM livre" "${RAM_D} MB"
+printf "  ${D}|${X}  %-14s  ${W}%-34s${D}|\n${X}" "CPU" "${CPU_Z} MHz (${CPU_P}% max)"
+linha_h
+echo ""
+
+# --- ARMAZENAMENTO ---
+SINV=$((100 - ${SP:-0}))
+SC=$(cor $SINV 40 20)
+echo -e "  ${W}[#] ARMAZENAMENTO${X}"
+linha_h
+printf "  ${D}|${X}  %-14s  $(cor $SINV 40 20)$(bar ${SP:-0})${X}  ${SC}%3s%%  $(nota $SINV 40 20)${X}  ${D}|\n${X}" "Usado" "${SP:-?}"
+printf "  ${D}|${X}  %-14s  ${W}%-34s${D}|\n${X}" "Total" "$ST"
+printf "  ${D}|${X}  %-14s  ${G}%-34s${D}|\n${X}" "Livre" "$SL"
+linha_h
+echo ""
+
+# --- CONECTIVIDADE ---
+echo -e "  ${W}[~] CONECTIVIDADE${X}"
+linha_h
+WC=$Y
+[ ! -z "$RSS" ] && [ "${RSS}" -ge -60 ] 2>/dev/null && WC=$G
+printf "  ${D}|${X}  %-14s  ${WC}%-34s${D}|\n${X}" "Wi-Fi" "${SSD:-Desconectado}"
+[ ! -z "$RSS" ] && printf "  ${D}|${X}  %-14s  ${WC}%-34s${D}|\n${X}" "Sinal" "${RSS} dBm"
+[ ! -z "$SPD" ] && printf "  ${D}|${X}  %-14s  ${G}%-34s${D}|\n${X}" "Velocidade" "${SPD} Mbps"
+linha_h
+echo ""
+
+# --- PONTUACAO ---
+PTS=0
+[ "${NIV:-0}" -ge 50 ] 2>/dev/null && PTS=$((PTS+20)) || { [ "${NIV:-0}" -ge 20 ] 2>/dev/null && PTS=$((PTS+10)); }
+[ $RAM_P -le 60 ] && PTS=$((PTS+25)) || { [ $RAM_P -le 80 ] && PTS=$((PTS+15)); }
+[ "${SP:-0}" -le 60 ] 2>/dev/null && PTS=$((PTS+20)) || { [ "${SP:-0}" -le 80 ] 2>/dev/null && PTS=$((PTS+12)); }
+[ ! -z "$RSS" ] && [ "${RSS}" -ge -60 ] 2>/dev/null && PTS=$((PTS+20)) || PTS=$((PTS+10))
+PTS=$((PTS+15))
+[ $PTS -ge 80 ] && PC=$BG && PD="EXCELENTE" || { [ $PTS -ge 60 ] && PC=$BY && PD="BOM" || PC=$BR && PD="PRECISA ATENCAO"; }
+
+linha_t
+printf "${C}|  ${PC}  PONTUACAO: %3s/100  --  %-22s${C}|\n${X}" "$PTS" "$PD"
+linha_t
+echo ""
+
+# --- ALERTAS ---
+ALT=0
+[ "${NIV:-100}" -lt 20 ] 2>/dev/null && echo -e "  ${BR}  BATERIA CRITICA -- Conecte o carregador${X}" && ALT=1
+[ $RAM_P -gt 80 ] && echo -e "  ${BY}  RAM alta -- execute: turbo${X}" && ALT=1
+[ "${SP:-0}" -gt 80 ] 2>/dev/null && echo -e "  ${BY}  Armazenamento acima de 80%${X}" && ALT=1
+[ $ALT -eq 0 ] && echo -e "  ${G}  Tudo dentro do normal -- sem alertas${X}"
+echo ""
