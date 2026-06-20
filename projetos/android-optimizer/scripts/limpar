@@ -1,0 +1,62 @@
+#!/data/data/com.termux/files/usr/bin/bash
+G='\e[0;32m';Y='\e[0;33m';R='\e[0;31m';C='\e[1;36m';W='\e[1;37m';D='\e[2;37m';BG='\e[1;32m';BY='\e[1;33m';BR='\e[1;31m';X='\e[0m'
+clear
+echo -e "${C}╔══════════════════════════════════════════════════╗${X}"
+echo -e "${C}║${W}       🧹  REALME C55  —  LIMPEZA DE CACHE       ${C}║${X}"
+echo -e "${C}║${D}               $(date '+%d/%m/%Y   %H:%M:%S')               ${C}║${X}"
+echo -e "${C}╚══════════════════════════════════════════════════╝${X}"
+echo ""
+S1="/sdcard/WhatsApp/Media/.Statuses"
+S2="/sdcard/WhatsApp/.trash"
+S3="/sdcard/.thumbnails"
+S4="/sdcard/DCIM/.thumbnails"
+S5="/sdcard/Pictures/.thumbnails"
+calc_size(){ find "$1" -mindepth 1 -type f 2>/dev/null | xargs -r du -sc 2>/dev/null | tail -1 | awk '{print int($1/1024)}'; }
+count_files(){ find "$1" -mindepth 1 -type f 2>/dev/null | wc -l; }
+echo -e "  ${W}🔍 ANALISE DE ARQUIVOS${X}"
+echo -e "  ${D}┌──────────────────────────────────────────────┐${X}"
+T1=$(calc_size "$S1"); N1=$(count_files "$S1")
+T2=$(calc_size "$S2"); N2=$(count_files "$S2")
+T3=$(calc_size "$S3"); N3=$(count_files "$S3")
+T4=$(calc_size "$S4"); N4=$(count_files "$S4")
+T5=$(calc_size "$S5"); N5=$(count_files "$S5")
+TT1=0; TT2=0
+while IFS= read -r -d '' f; do s=$(stat -c %s "$f" 2>/dev/null||echo 0); TT1=$((TT1+s)); done < <(find /sdcard -maxdepth 4 -name "*.tmp" -size +0 -print0 2>/dev/null)
+while IFS= read -r -d '' f; do s=$(stat -c %s "$f" 2>/dev/null||echo 0); TT2=$((TT2+s)); done < <(find /sdcard -maxdepth 4 -name "*.log" -size +512k -print0 2>/dev/null)
+TT1M=$((TT1/1048576)); TT2M=$((TT2/1048576))
+printf "  ${D}│${X}  ${Y}%-28s${X}  ${W}%4s arqs  %4s MB${X}  ${D}│${X}\n" "Status WhatsApp" "$N1" "${T1:-0}"
+printf "  ${D}│${X}  ${Y}%-28s${X}  ${W}%4s arqs  %4s MB${X}  ${D}│${X}\n" "Lixeira WhatsApp" "$N2" "${T2:-0}"
+printf "  ${D}│${X}  ${Y}%-28s${X}  ${W}%4s arqs  %4s MB${X}  ${D}│${X}\n" "Miniaturas" "$((N3+N4+N5))" "$((T3+T4+T5))"
+printf "  ${D}│${X}  ${Y}%-28s${X}  ${W}%4s arqs  %4s MB${X}  ${D}│${X}\n" "Arquivos .tmp" "?" "${TT1M}"
+printf "  ${D}│${X}  ${Y}%-28s${X}  ${W}%4s arqs  %4s MB${X}  ${D}│${X}\n" "Logs antigos (>512KB)" "?" "${TT2M}"
+TOTAL=$((T1+T2+T3+T4+T5+TT1M+TT2M))
+echo -e "  ${D}├──────────────────────────────────────────────┤${X}"
+printf "  ${D}│${X}  ${BY}TOTAL ESTIMADO A LIBERAR:${X}            ${BY}%4s MB${X}  ${D}│${X}\n" "$TOTAL"
+echo -e "  ${D}└──────────────────────────────────────────────┘${X}"
+echo ""
+printf "  ${BY}  Confirmar limpeza? [S/n]:${X} "
+read RESP
+[ "$RESP" = "n" ] || [ "$RESP" = "N" ] && echo -e "\n  ${Y}  ○  Limpeza cancelada${X}\n" && exit 0
+echo ""
+echo -e "  ${D}┌──────────────────────────────────────────────┐${X}"
+LIB=0
+do_clean(){ local label="$1" dir="$2"; [ -d "$dir" ] && CNT=$(count_files "$dir") && [ "$CNT" -gt 0 ] && find "$dir" -mindepth 1 -delete 2>/dev/null && printf "  ${D}│${X}  ${G}✓${X}  %-32s${G}%3s arqs${X}  ${D}│${X}\n" "$label" "$CNT" || printf "  ${D}│${X}  ${D}○  %-38s${D}│${X}\n" "$label (vazio)"; }
+do_clean "Status WhatsApp" "$S1"
+do_clean "Lixeira WhatsApp" "$S2"
+do_clean "Miniaturas (.thumbnails)" "$S3"
+do_clean "Miniaturas DCIM" "$S4"
+do_clean "Miniaturas Pictures" "$S5"
+echo -e "  ${D}│${X}  ${C}Removendo .tmp e .log...${X}                      ${D}│${X}"
+CNT_T=0; SZ_T=0
+while IFS= read -r -d '' f; do s=$(stat -c %s "$f" 2>/dev/null||echo 0); rm -f "$f" 2>/dev/null && CNT_T=$((CNT_T+1)) && SZ_T=$((SZ_T+s)); done < <(find /sdcard -maxdepth 4 -name "*.tmp" -print0 2>/dev/null)
+while IFS= read -r -d '' f; do s=$(stat -c %s "$f" 2>/dev/null||echo 0); rm -f "$f" 2>/dev/null && CNT_T=$((CNT_T+1)) && SZ_T=$((SZ_T+s)); done < <(find /sdcard -maxdepth 4 -name "*.log" -size +512k -print0 2>/dev/null)
+SZ_TM=$((SZ_T/1048576))
+printf "  ${D}│${X}  ${G}✓${X}  %-32s${G}%3s arqs${X}  ${D}│${X}\n" "tmp/log removidos" "$CNT_T"
+echo -e "  ${D}└──────────────────────────────────────────────┘${X}"
+echo ""
+echo -e "  ${C}╔══════════════════════════════════════════════╗${X}"
+printf "  ${C}║  ${G}  ✓  Limpeza concluida — aprox. %3s MB livres  ${C}║${X}\n" "$TOTAL"
+echo -e "  ${C}╚══════════════════════════════════════════════╝${X}"
+echo ""
+echo -e "  ${G}  Execute 'saude' para ver o estado atualizado${X}"
+echo ""
